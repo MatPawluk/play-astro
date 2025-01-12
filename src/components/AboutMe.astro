@@ -1,0 +1,86 @@
+---
+import Button from "./layout/Button.astro";
+
+const features = [
+  {
+    icon: 'assets/features/icon-01.svg',
+    title: 'Mobile First',
+    ref: 'javascript:void(0)',
+    refTitle: 'Zacznij Teraz',
+    description:
+      'Zawsze zaczynam projektowanie Twojej strony od urządzeń mobilnych, co pozwala mi tworzyć lekki, zoptymalizowany kod bez zbędnych elementów. Dzięki temu Twoja strona będzie działać szybciej i bardziej responsywnie na każdym urządzeniu.',
+  },
+  {
+    icon: 'assets/features/icon-02.svg',
+    title: 'Responsywny Design',
+    ref: 'javascript:void(0)',
+    refTitle: 'Zacznij Teraz',
+    description:
+      'Twoja strona będzie w pełni responsywna, dopasowana do wszystkich rozmiarów ekranów. Dzięki temu użytkownicy będą mogli odwiedzać Twoją stronę z dowolnego urządzenia i zawsze zobaczą przyjemny i estetyczny layout.',
+  },
+  {
+    icon: 'assets/features/icon-03.svg',
+    title: 'Szybkość Ładowania',
+    ref: 'javascript:void(0)',
+    refTitle: 'Zacznij Teraz',
+    description:
+      'Jeśli strona ładuje się dłużej niż 3s, możesz stracić nawet 50% ruchu, ponieważ użytkownicy nie będą czekać. Strony, które tworzę, ładują się w 1s lub szybciej, co zapewnia, że odwiedzający bez problemu dotrze do Twojej witryny i zostanie na dłużej.',
+  },
+  {
+    icon: 'assets/features/icon-04.svg',
+    title: 'Optymalizacja SEO',
+    ref: 'javascript:void(0)',
+    refTitle: 'Learn More',
+    description:
+      'Twoja strona będzie w pełni zoptymalizowana pod kątem SEO, co zwiększy jej widoczność w wynikach wyszukiwania Google i przyciągnie więcej odwiedzających. Dzięki temu Twoja firma zyska większy ruch i lepsze pozycje w sieci.',
+  },
+];
+---
+
+<!-- ====== Features Section Start -->
+<section id="aboutme" class="pt-20 pb-8 lg:pt-[120px] lg:pb-[70px] dark:bg-dark">
+  <div class="container">
+    <div class="-mx-4 flex flex-wrap">
+      <div class="w-full px-4">
+        <div class="mb-12 mx-auto max-w-[1200px] lg:mb-[70px] text-center">
+          <span class="mb-2 block text-lg font-semibold text-primary">
+            Czym Się Zajmuje
+          </span>
+          <h2 class="mb-3 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]">
+            Nigdy Więcej Nie Martw Się o Swoją Stronę Internetową
+          </h2>
+          <p class="text-base text-body-color dark:text-dark-6">
+            Specjalizuje się w projektowaniu i tworzeniu stron internetowych dla małych firm, obsługując klientów na terenie całej Polski. Każdy projekt jest tworzony od podstaw, bez użycia gotowych kreatorów, gwarantując najlepszą wydajność i optymalizację SEO, co pomaga przyciągnąć więcej klientów na Twoją stronę i zwiększyć zyski Twojej firmy. Zajmuje się także bieżącymi aktualizacjami, zapewniając Ci pełne wsparcie techniczne. Moim celem jest budowanie długotrwałych relacji z klientami i wspieranie ich rozwoju na każdym etapie działalności.
+        </div>
+      </div>
+    </div>
+    <div class="-mx-4 flex flex-wrap">
+      {
+        features.map((feature) => (
+          <div class="w-full px-4 md:w-1/2 lg:w-1/4">
+            <div class="wow fadeInUp group mb-12" data-wow-delay=".1s">
+              <div
+                class="relative z-10 mb-10 flex h-[70px] w-[70px] items-center justify-center rounded-[14px] bg-primary"
+              >
+                <span
+                  class="absolute top-0 left-0 -z-[1] mb-8 flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-[14px] bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"
+                ></span>
+                <img src={feature.icon} alt="icon" loading="lazy"/>
+              </div>
+              <h4 class="mb-3 text-xl font-bold text-dark dark:text-white">
+                {feature.title}
+              </h4>
+              <p class="mb-8 text-body-color dark:text-dark-6 lg:mb-9">
+                {feature.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="w-full px-4 inline-flex items-center justify-center">
+      <Button href="#contact" text="Skontaktuj się" />
+    </div>
+  </div>
+</section>
+<!-- ====== Features Section End -->
