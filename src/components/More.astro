@@ -1,6 +1,6 @@
 ---
 import Image from "astro/components/Image.astro";
-import Photo from "../assets/more/more-image-01.avif";
+import Photo from "../assets/more/more-image-01.png";
 ---
 
 <section class="bg-gray-1 dark:bg-dark-2">
@@ -132,11 +132,11 @@ import Photo from "../assets/more/more-image-01.avif";
         </div>
       </div>
 
-      <div class="hidden lg:flex lg:w-1/2 lg:justify-center">
+      <div class="mt-5 flex w-full justify-center">
         <Image
         src={Photo}
         alt="Osoba pracująca przy biurku z długopisem i papierami. Planuje projekt"
-        class="h-[28rem] w-[28rem] flex-shrink-0 rounded-full object-cover xl:h-[34rem] xl:w-[34rem]"
+        class="h-[28rem] w-[28rem] flex-shrink-0 rounded-lg object-fit xl:h-[34rem] xl:w-[34rem]"
         width={1470} 
         height={980}  
         layout="responsive"  
