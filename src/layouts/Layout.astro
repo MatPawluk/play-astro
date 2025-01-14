@@ -2,6 +2,7 @@
 import Footer from '../components/layout/Footer.astro';
 import Header from '../components/layout/Header.astro';
 import BackToTop from '../components/layout/BackToTop.astro';
+import ClientRouter from 'astro/components/ClientRouter.astro';
 
 interface Props {
   description: string;
@@ -40,9 +41,10 @@ const { description, title, image } = Astro.props;
   
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ClientRouter />
   </head>
   
-  <body>
+  <body class="bg-gray-100 dark:bg-black">
     <Header />
     <main>
       <slot />
