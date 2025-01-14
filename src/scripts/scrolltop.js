@@ -1,4 +1,5 @@
-// ====== scroll top js
+document.addEventListener('astro:page-load', function () {
+
 function scrollTo(element, to = 0, duration = 500) {
   const start = element.scrollTop;
   const change = to - start;
@@ -28,3 +29,4 @@ Math.easeInOutQuad = function (t, b, c, d) {
 };
 
 document.querySelector(".back-to-top").onclick = () => { scrollTo(document.documentElement); };
+});
