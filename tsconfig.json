@@ -2,5 +2,13 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "allowJs": true,
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.astro"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/pages/kontakt.astro"
+  ]
 }
