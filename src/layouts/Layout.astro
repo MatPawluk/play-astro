@@ -18,32 +18,39 @@ const { description, title, image } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    
+
     <meta name="description" content={description} />
-    <meta name="keywords" content="projektowanie stron, tworzenie stron internetowych, strony internetowe, SEO, Astro, małe biznesy, strony wizytówki" />
-  
+    <meta
+      name="keywords"
+      content="projektowanie stron, tworzenie stron internetowych, strony internetowe, SEO, Astro, małe biznesy, strony wizytówki"
+    />
+
     <!-- Open Graph for social media -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
     <meta property="og:type" content="website" />
-    
+
     <!-- Twitter Cards -->
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
-  
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-  
+
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ClientRouter />
   </head>
-  
+
   <body class="bg-gray-100 dark:bg-black">
     <Header />
     <main>
@@ -132,9 +139,11 @@ const { description, title, image } = Astro.props;
       }
     </style>
     <script>
+      import '../scripts/taos.js';
       import '../scripts/stickymenu.js';
       import '../scripts/scrolltop.js';
       import '../scripts/darkMode.js';
     </script>
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
   </body>
 </html>

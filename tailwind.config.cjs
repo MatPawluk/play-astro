@@ -3,7 +3,12 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  safelist: ['!duration-[0ms]', '!delay-[0ms]', 'html.js :where([class*="taos:"]:not(.taos-init))'],
+  content: {
+    relative: true,
+    transform: (content) => content.replace(/taos:/g, ''),
+    files: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  },
   darkMode: 'class',
   theme: {
     screens: {
@@ -80,5 +85,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('taos/plugin')],
 };
