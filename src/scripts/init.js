@@ -13,31 +13,29 @@ function init() {
 }
 
 document.addEventListener('astro:page-load', () => {
-  document.addEventListener(
-    'astro:before-swap',
-    () => {
-      const oldScript = document.querySelector('#cookieyes');
-      if (oldScript) {
-        oldScript.remove();
-      }
-    },
-    { once: true }
-  );
+  const beforeSwapListener = () => {
+    const oldScript = document.querySelector('#cookieyes');
+    if (oldScript) {
+      oldScript.remove();
+    }
+    document.removeEventListener('astro:before-swap', beforeSwapListener);
+  };
+
+  document.addEventListener('astro:before-swap', beforeSwapListener, { once: true });
 
   init();
 });
 
 document.addEventListener('astro:after-swap', () => {
-  document.addEventListener(
-    'astro:before-swap',
-    () => {
-      const oldScript = document.querySelector('#cookieyes');
-      if (oldScript) {
-        oldScript.remove();
-      }
-    },
-    { once: true }
-  );
+  const beforeSwapListener = () => {
+    const oldScript = document.querySelector('#cookieyes');
+    if (oldScript) {
+      oldScript.remove();
+    }
+    document.removeEventListener('astro:before-swap', beforeSwapListener);
+  };
+
+  document.addEventListener('astro:before-swap', beforeSwapListener, { once: true });
 
   init();
 });
