@@ -60,16 +60,9 @@ const { description, title, image } = Astro.props;
     <BackToTop />
     <style is:global>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-      @keyframes apper {
-        from {
-          opacity: 0;
-          scale: 0.5;
-        }
-        to {
-          opacity: 1;
-          scale: 1;
-        }
-      }
+
+  
+
       body {
         font-family: 'Inter', sans-serif;
       }
@@ -84,7 +77,25 @@ const { description, title, image } = Astro.props;
       }
 
       .slide-in-left {
+        animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;     
+      }
+
+      .slide-in-left-view {
         animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+      }
+
+      @keyframes apper {
+        0% {
+          opacity: 0;
+          scale: 0.5;
+        }
+   
+        100% {
+          opacity: 1;
+          scale: 1;
+        }
       }
 
       @keyframes slide-in-left {
@@ -98,15 +109,15 @@ const { description, title, image } = Astro.props;
         }
       }
 
-      span.slide-in-left {
+      .one.slide-in-left {
         animation-delay: 0s; /* Pierwszy element */
       }
 
-      h1.slide-in-left {
+      .two.slide-in-left {
         animation-delay: 0.3s; /* Drugi element */
       }
 
-      p.slide-in-left {
+      .three.slide-in-left {
         animation-delay: 0.6s; /* Trzeci element */
       }
 
