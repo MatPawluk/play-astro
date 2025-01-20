@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   // Odświeżenie TAOS przy każdej zmianie strony
-  document.addEventListener('astro:page-load', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     if (window.TAOS) {
       window.TAOS.refresh();
     }

@@ -1,5 +1,5 @@
 // ======= Sticky
-document.addEventListener('astro:page-load', function () {
+document.addEventListener("DOMContentLoaded", function () {
   window.onscroll = function () {
     const ud_header = document.querySelector('.ud-header');
     const sticky = ud_header.offsetTop;

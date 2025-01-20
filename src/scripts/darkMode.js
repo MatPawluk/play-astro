@@ -1,5 +1,5 @@
 /* ========  themeSwitcher start ========= */
-document.addEventListener('astro:page-load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   // themeSwitcher
   const themeSwitcher = document.getElementById('themeSwitcher');
 

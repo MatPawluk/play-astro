@@ -1,4 +1,4 @@
-document.addEventListener('astro:page-load', function () {
+document.addEventListener('DOMContentLoaded', function () {
 
 function scrollTo(element, to = 0, duration = 500) {
   const start = element.scrollTop;
