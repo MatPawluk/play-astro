@@ -1,17 +1,20 @@
 ---
+import Button from "./layout/Button.astro"
+
 const priceboxes = [
   {
     popular:false,
     packageName:"Satandard",
     price:'3200',
     subtitle:'Opłata jednorazowa',
-    btn:'Wybieram',
+    btn:'Więcej',
     purchaseLink:'/#',
     offerlist: [
       {title: "Projekt i wdrożenie"},
       {title: "Do 5-ciu podstron"},
-      {title: "Darmowy hosting na rok"},
-      {title: "Darmowa domena na rok"},
+      {title: "Gratis hosting na rok"},
+      {title: "Gratis domena na rok"},
+      {title: "Gratis certyfika SSL"},
       {title: "Blog + 500 zł"},
     ],
   },
@@ -20,13 +23,14 @@ const priceboxes = [
     packageName:"Abonament",
     price:'199',
     subtitle:'Płatność miesięczna',
-    btn:'Wybieram',
+    btn:'Więcej',
     purchaseLink:'/#',
     offerlist: [
       {title: "Projekt i wdrożenie"},
-      {title: "Do 5 podstron"},
+      {title: "Do 5-ciu podstron"},
       {title: "Darmowy hosting"},
       {title: "Darmowa domena"},
+      {title: "Darmowy certyfika SSL"},
       {title: "Całodobowe wsparcie"},
       {title: "Aktualizacje"},
       {title: "Edycja treści"},
@@ -38,7 +42,7 @@ const priceboxes = [
     packageName:"E-commerce",
     price:'od 7900',
     subtitle:'Twój sklep On-line',
-    btn:'Wybieram',
+    btn:'Więcej',
     purchaseLink:'/#',
     offerlist: [
       {title: "Niestandardowy sklep Shopify"},
@@ -75,11 +79,11 @@ const priceboxes = [
       </div>
     </div>
 
-    <div class="-mx-4 flex flex-wrap justify-center">
+    <div class="-mx-4 flex flex-wrap justify-between">
       {priceboxes.map(pricebox => (
         <div class="w-full px-4 md:w-1/2 lg:w-1/3 apper">
           <div
-            class="relative z-10 mb-10 overflow-hidden rounded-xl bg-white dark:bg-dark-2 py-10 px-8 shadow-pricing sm:p-12 lg:py-10 lg:px-6 xl:p-14 apper"
+            class="relative h-full z-10 mb-10 overflow-hidden flex flex-col flex-wrap justify-between rounded-xl bg-white dark:bg-dark-2 py-10 px-8 shadow-pricing sm:p-12 lg:py-10 lg:px-6 xl:p-14 apper"
            
           >
             {
@@ -91,8 +95,8 @@ const priceboxes = [
                 </p>
               )
             }
-
-            <span
+            <div>
+              <span
               class={`mb-5 block text-xl font-medium text-dark dark:text-white`}
             >
               {pricebox.packageName}
@@ -105,17 +109,20 @@ const priceboxes = [
             <div class="mb-[50px]">
               <p class="mb-5 text-lg font-medium text-dark dark:text-white">{pricebox.subtitle}</p>
 
+            </div>
+           
+
               <div class="flex flex-col gap-[14px]">
                 {pricebox.offerlist.map(item => (
                   <p
                     class={`text-base text-body-color dark:text-dark-6`}
                   >
-                    {item.title}
+                    - {item.title}
                   </p>
                 ))}
               </div>
             </div>
-
+            <Button href={pricebox.purchaseLink} text={pricebox.btn} />
             {/* <a
               href={pricebox.purchaseLink}
               class={`inline-block rounded-md bg-primary py-3 px-7 text-center text-base font-medium text-white transition hover:bg-blue-dark`}
