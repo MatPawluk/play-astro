@@ -37,7 +37,7 @@ const menuitems: MenuItem[] = [
       <div class="w-60 max-w-full px-4 lg:w-fit">
         <a href="/" class="navbar-logo justify-cneter flex w-full py-5">
           {
-            Astro.url.pathname === '/' ? (
+            Astro.url.pathname ? (
               <Image
                 src="/assets/logo/logo-white.svg"
                 alt="logo"
@@ -89,13 +89,9 @@ const menuitems: MenuItem[] = [
                       <li class="group relative">
                         <a
                           href={item.path}
-                          class={` ${index}
-                          ${
-                            Astro.url.pathname === '/'
-                              ? 'ud-menu-scroll flex px-8 py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:mr-0 lg:inline-flex lg:px-8 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70'
-                              : 'ud-menu-scroll flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-body-color dark:lg:text-dark-6 '
-                          }
-                          `}>
+                          class=
+                              'ud-menu-scroll flex px-8 py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:mr-0 lg:inline-flex lg:px-8 lg:py-6  lg:group-hover:text-white lg:group-hover:opacity-70'
+                           >
                           {item.title}
                         </a>
                       </li>
@@ -107,13 +103,9 @@ const menuitems: MenuItem[] = [
                       <li class="submenu-item group relative">
                         <a
                           href={item.path}
-                          class={` ${index}
-                          ${
-                            Astro.url.pathname === '/'
-                              ? 'relative mx-8 flex items-center justify-between py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10'
-                              : 'relative mx-8 flex items-center justify-between py-2 text-base font-medium text-primary group-hover:text-primary lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 xl:ml-10'
-                          }
-                          `}>
+                          class=
+                              'relative mx-8 flex items-center justify-between py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10'
+                        >
                           {item.title}
 
                           <svg
@@ -128,7 +120,7 @@ const menuitems: MenuItem[] = [
                         </a>
 
                         <div class="submenu relative left-0 top-full hidden w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full">
-                          {item.children.map(
+                          {/* {item.children.map(
                             (item: { path: string | URL | null | undefined; title: unknown }) => (
                               <a
                                 href={item.path}
@@ -136,7 +128,7 @@ const menuitems: MenuItem[] = [
                                 {item.title}
                               </a>
                             )
-                          )}
+                          )} */}
                         </div>
                       </li>
                     );
