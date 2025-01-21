@@ -65,7 +65,8 @@
             action="/thanks"
             method="POST"
             data-netlify="true"
-            netlify-honeypot="bot-field">
+            netlify-honeypot="bot-field"
+            onsubmit="return validateForm()">
             <input type="hidden" name="form-name" value="Contact Form" />
             <input type="hidden" name="bot-field" />
             <div class="mb-[22px]">
@@ -73,6 +74,7 @@
                 >Imię/Firma*</label
               >
               <input
+                id="fullName"
                 type="text"
                 name="fullName"
                 placeholder="Janek"
@@ -85,6 +87,7 @@
                 >Email*</label
               >
               <input
+                id="email"
                 type="email"
                 name="email"
                 placeholder="janek@twojmail.com"
@@ -97,6 +100,7 @@
                 >Telefon*</label
               >
               <input
+                id="phone"
                 type="text"
                 name="phone"
                 placeholder="123 456 789"
@@ -109,6 +113,7 @@
                 >Wiadomość*</label
               >
               <textarea
+                id="message"
                 name="message"
                 rows="1"
                 placeholder="napisz wiadomość"
@@ -134,3 +139,51 @@
   </div>
 </section>
 <!-- ====== Contact End ====== -->
+
+<script is:inline>
+  function validateForm() {
+    const fullName = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!fullName) {
+      alert('Pole "Imię/Firma" jest wymagane.');
+      return false;
+    }
+
+    if (!email) {
+      alert('Pole "Email" jest wymagane.');
+      return false;
+    }
+
+    if (!phone) {
+      alert('Pole "Telefon" jest wymagane.');
+      return false;
+    }
+
+    if (!message) {
+      alert('Pole "Wiadomość" jest wymagane.');
+      return false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert('Podaj poprawny adres email.');
+      return false;
+    }
+
+    const phonePattern = /^(\d{3}[-\s]?){2}\d{3}$/;
+    if (!phonePattern.test(phone)) {
+      alert('Podaj poprawny numer telefonu (np. 123 456 789).');
+      return false;
+    }
+
+    if (message.length < 10) {
+      alert('Wiadomość musi mieć co najmniej 10 znaków.');
+      return false;
+    }
+
+    return true;
+  }
+</script>
