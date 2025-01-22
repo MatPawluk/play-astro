@@ -85,5 +85,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require('taos/plugin')],
+  plugins: [
+    require('taos/plugin'),
+    require('@tailwindcss/typography')
+  ],
 };

@@ -1,5 +1,5 @@
 ---
-import Image from 'astro/components/Image.astro';
+import { Image } from 'astro:assets';
 
 type MenuItem = {
   title: string;
@@ -23,6 +23,10 @@ const menuitems: MenuItem[] = [
   {
     title: 'FAQ',
     path: '/#faq',
+  },
+  {
+    title: 'Blog',
+    path: '/blog',
   },
   {
     title: 'Kontakt',
