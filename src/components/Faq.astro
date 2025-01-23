@@ -32,7 +32,7 @@ const faqs = [
   class="relative z-20 bg-white dark:bg-dark pt-20 pb-8 lg:pt-[120px] lg:pb-[50px]"
 >
   <div class="container mx-auto">
-    <div class="flex flex-wrap -mx-4">
+    <div data-animate class="flex flex-wrap -mx-4">
       <div class="w-full px-4">
         <div class="mx-auto mb-[60px] max-w-[520px] text-center">
           <span class="block mb-2 text-lg font-semibold text-dark dark:text-white ">
@@ -55,7 +55,7 @@ const faqs = [
           faqs.map((faq, index) => {
             if (index % 2 !== 0) {
               return (
-                <div
+                <div data-animate
                   class=" mb-12 flex lg:mb-[70px]"
                   
                 >
@@ -90,7 +90,7 @@ const faqs = [
           faqs.map((faq, index) => {
             if (index % 2 === 0) {
               return (
-                <div
+                <div data-animate
                   class=" mb-12 flex lg:mb-[70px]"
                 >
                   <div

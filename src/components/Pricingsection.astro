@@ -1,132 +1,118 @@
 ---
-import Button from "./layout/Button.astro"
+import Button from './layout/Button.astro';
 
 const priceboxes = [
   {
-    popular:false,
-    packageName:"Satandard",
-    price:'3200',
-    subtitle:'Opłata jednorazowa',
-    btn:'Więcej',
-    purchaseLink:'/#',
+    popular: false,
+    packageName: 'Satandard',
+    price: '3200',
+    subtitle: 'Opłata jednorazowa',
+    btn: 'Więcej',
+    purchaseLink: '/#',
     offerlist: [
-      {title: "Projekt i wdrożenie"},
-      {title: "Do 5-ciu podstron"},
-      {title: "Gratis hosting na rok"},
-      {title: "Gratis domena na rok"},
-      {title: "Gratis certyfikat SSL"},
-      {title: "Blog + 500 zł"},
+      { title: 'Projekt i wdrożenie' },
+      { title: 'Do 5-ciu podstron' },
+      { title: 'Gratis hosting na rok' },
+      { title: 'Gratis domena na rok' },
+      { title: 'Gratis certyfikat SSL' },
+      { title: 'Blog + 500 zł' },
     ],
   },
   {
-    popular:true,
-    packageName:"Abonament",
-    price:'199',
-    subtitle:'Płatność miesięczna',
-    btn:'Więcej',
-    purchaseLink:'/#',
+    popular: true,
+    packageName: 'Abonament',
+    price: '199',
+    subtitle: 'Płatność miesięczna',
+    btn: 'Więcej',
+    purchaseLink: '/#',
     offerlist: [
-      {title: "Projekt i wdrożenie"},
-      {title: "Do 5-ciu podstron"},
-      {title: "Darmowy hosting"},
-      {title: "Darmowa domena"},
-      {title: "Darmowy certyfikat SSL"},
-      {title: "Całodobowe wsparcie"},
-      {title: "Aktualizacje"},
-      {title: "Edycja treści"},
-      {title: "Blog + 500 zł jednorazowo"},
+      { title: 'Projekt i wdrożenie' },
+      { title: 'Do 5-ciu podstron' },
+      { title: 'Darmowy hosting' },
+      { title: 'Darmowa domena' },
+      { title: 'Darmowy certyfikat SSL' },
+      { title: 'Całodobowe wsparcie' },
+      { title: 'Aktualizacje' },
+      { title: 'Edycja treści' },
+      { title: 'Blog + 500 zł jednorazowo' },
     ],
   },
   {
-    popular:false,
-    packageName:"E-commerce",
-    price:'od 7900',
-    subtitle:'Twój sklep On-line',
-    btn:'Więcej',
-    purchaseLink:'/#',
+    popular: false,
+    packageName: 'E-commerce',
+    price: 'od 7900',
+    subtitle: 'Twój sklep On-line',
+    btn: 'Więcej',
+    purchaseLink: '/#',
     offerlist: [
-      {title: "Niestandardowy sklep Shopify"},
-      {title: "Zintegrowana wysyłka"},
-      {title: "Wszytskie niezbędne aplikacje"},
-      {title: "Przewodnik po samouczku Shopify"},
-      {title: "W pełni edytowalny w Shopify CMS"},
+      { title: 'Niestandardowy sklep Shopify' },
+      { title: 'Zintegrowana wysyłka' },
+      { title: 'Wszytskie niezbędne aplikacje' },
+      { title: 'Przewodnik po samouczku Shopify' },
+      { title: 'W pełni edytowalny w Shopify CMS' },
     ],
   },
-]
+];
 ---
 
 <!-- ====== Pricing Section Start -->
-<section
-  id="cennik"
-  class=" bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
->
+<section id="cennik" class="bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
   <div class="container">
     <div class="-mx-4 flex flex-wrap">
       <div class="w-full px-4">
-        <div class="mx-auto mb-[60px] max-w-[510px] text-center ">
-          <span class="mb-2 block text-lg font-semibold text-dark dark:text-white">
+        <div class="mx-auto mb-[60px] max-w-[510px] text-center">
+          <span data-animate class="mb-2 block text-lg font-semibold text-dark dark:text-white">
             Cennik
           </span>
-          <h2 class="slide-in-left mb-3 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:leading-[1.2] md:text-[40px] ">
-            Pakiety cenowe <br> dla każdego budżetu
+          <h2
+            data-animate
+            class="mb-3 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]">
+            Pakiety cenowe <br /> dla każdego budżetu
           </h2>
-          <p class="text-base text-body-color dark:text-dark-6">
-            Wybierz pakiet, który najlepiej odpowiada Twoim potrzebom. <br> W razie
-            wątpliwości, skontaktuj się ze mną, a pomogę Ci wybrać najlepsze
-            rozwiązanie.
+          <p data-animate class="text-base text-body-color dark:text-dark-6">
+            Wybierz pakiet, który najlepiej odpowiada Twoim potrzebom. <br /> W razie wątpliwości,
+            skontaktuj się ze mną, a pomogę Ci wybrać najlepsze rozwiązanie.
           </p>
         </div>
       </div>
     </div>
 
     <div class="-mx-4 flex flex-wrap justify-between">
-      {priceboxes.map(pricebox => (
-        <div class="w-full px-4 md:w-1/2 lg:w-1/3  mt-4">
-          <div
-            class="relative h-full z-10 mb-10 overflow-hidden flex flex-col flex-wrap justify-between rounded-xl bg-white dark:bg-dark-2 py-10 px-8 shadow-pricing sm:p-12 lg:py-10 lg:px-6 xl:p-14 "
-           
-          >
-            {
-              pricebox.popular && (
-                <p
-                  class="absolute right-[-30px] top-[30px] inline-block -rotate-90 rounded-tl-md rounded-bl-md bg-primary py-2 px-9 text-base font-medium text-white animate-pulse"
-                >
+      {
+        priceboxes.map(pricebox => (
+          <div  class="mt-4 w-full px-4 md:w-1/2  lg:w-1/3">
+            <div class="relative z-10 mb-10 flex h-full flex-col flex-wrap justify-between overflow-hidden rounded-xl bg-white px-8 py-10 shadow-pricing dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-14 ">
+              {pricebox.popular && (
+                <p class="absolute right-[-30px] top-[30px] inline-block -rotate-90 animate-pulse rounded-bl-md rounded-tl-md bg-primary px-9 py-2 text-base font-medium text-white">
                   Polecany
                 </p>
-              )
-            }
-            <div>
-              <span
-              class={`mb-5 block text-xl font-medium text-dark dark:text-white`}
-            >
-              {pricebox.packageName}
-            </span>
-            <p class="mb-11 text-4xl font-semibold text-dark dark:text-white xl:leading-[1.21] xl:text-[42px]">
-              <span class="ml-1 -tracking-[2px]">{pricebox.price}</span>
-              <span class="text-xl font-medium">zł</span>              
-            </p>
-  
-            <div class="mb-[50px]">
-              <p class="mb-5 text-lg font-medium text-dark dark:text-white">{pricebox.subtitle}</p>
+              )}
+              <div>
+                <span class={`mb-5 block text-xl font-medium text-dark dark:text-white`}>
+                  {pricebox.packageName}
+                </span>
+                <p class="mb-11 text-4xl font-semibold text-dark dark:text-white xl:text-[42px] xl:leading-[1.21]">
+                  <span class="ml-1 -tracking-[2px]">{pricebox.price}</span>
+                  <span class="text-xl font-medium">zł</span>
+                </p>
 
-            </div>
-           
-
-              <div class="flex flex-col gap-[14px]">
-                {pricebox.offerlist.map(item => (
-                  <p
-                    class={`text-base text-body-color dark:text-dark-6`}
-                  >
-                    - {item.title}
+                <div class="mb-[50px]">
+                  <p class="mb-5 text-lg font-medium text-dark dark:text-white">
+                    {pricebox.subtitle}
                   </p>
-                ))}
+                </div>
+
+                <div class="flex flex-col gap-[14px]">
+                  {pricebox.offerlist.map(item => (
+                    <p class={`text-base text-body-color dark:text-dark-6`}>- {item.title}</p>
+                  ))}
+                </div>
               </div>
+              {/* <Button href={pricebox.purchaseLink} text={pricebox.btn} /> */}
             </div>
-            {/* <Button href={pricebox.purchaseLink} text={pricebox.btn} /> */}
-    
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
