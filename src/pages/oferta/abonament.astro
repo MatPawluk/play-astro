@@ -1,0 +1,738 @@
+---
+import Breadcrumb from '../../components/layout/Breadcrumb.astro';
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/layout/Button.astro';
+import ProcessStep from '../../components/ProcessStep.astro';
+import ClientLogos from '../../components/ClientLogos.astro';
+
+const offerDetails = {
+  title: 'Abonament Strony Internetowej',
+  price: '199 zł/mc',
+  description:
+    'Profesjonalna obecność online bez żadnych inwestycji początkowych - płacisz tylko za użytkowanie',
+  features: [
+    '0 zł opłat startowych',
+    'Hosting i domena w cenie',
+    'Do 10 podstron',
+    'Wsparcie techniczne 24/7',
+    'Darmowe aktualizacje treści',
+    'Monitoring SEO i wydojności',
+    'Automatyczne kopie zapasowe',
+    'Gwarancja najniższej ceny na rynku',
+  ],
+  benefits: [
+    {
+      title: 'Natychmiastowy start',
+      icon: `
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+      `,
+      text: 'Gotowa strona do 7 dni',
+    },
+    {
+      title: 'Bez zobowiązań',
+      icon: `
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+      `,
+      text: 'Gwarancja zwrotu pieniędzy',
+    },
+    {
+      title: 'Pełne bezpieczeństwo',
+      icon: `
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      `,
+      text: 'Dzienne kopie zapasowe',
+    },
+    {
+      title: 'Stały rozwój',
+      icon: `
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+      `,
+      text: 'Automatyczne aktualizacje',
+    },
+  ],
+};
+---
+
+<Layout
+  title="Abonament Strony WWW | Pawluk Studio"
+  description="Profesjonalna strona internetowa od 199 zł/mc - zero opłat początkowych, hosting i domena w cenie. Idealne rozwiązanie dla małych firm i startupów.">
+  <Breadcrumb>
+    <Fragment slot="title">Abonament</Fragment>
+  </Breadcrumb>
+
+  <section class="pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
+    <div class="container">
+      <!-- Hero Section -->
+      <div class="mb-16 text-center">
+        <h1 data-animate class="text-4xl font-bold text-dark dark:text-white md:text-5xl">
+          {offerDetails.title}
+        </h1>
+        <div class="mt-6 flex flex-col items-center gap-2">
+          <span class="text-4xl font-bold text-primary">{offerDetails.price}</span>
+        </div>
+        <p data-animate class="mx-auto mt-6 max-w-2xl text-lg text-body-color dark:text-dark-6">
+          {offerDetails.description}
+        </p>
+        <div class="mt-8">
+          <Button href="#order" text="Rozpocznij teraz" />
+        </div>
+      </div>
+
+      <!-- Benefits Grid -->
+      <div class="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {
+          offerDetails.benefits.map((benefit, index) => (
+            <div
+              data-animate
+              class="group relative overflow-hidden rounded-2xl bg-white/80 p-8 text-center shadow-xl shadow-dark/10 transition-all duration-300 hover:shadow-2xl dark:bg-dark-2 dark:shadow-black/30">
+              <div class="mb-6 inline-flex rounded-lg p-2 text-primary transition-transform duration-300 group-hover:-translate-y-1">
+                <span
+                  class="[&>svg]:h-12 [&>svg]:w-12 [&>svg]:stroke-[1.5]"
+                  set:html={benefit.icon}
+                />
+              </div>
+              <h3 class="mb-2 text-xl font-semibold text-dark dark:text-white">{benefit.title}</h3>
+              <p class="text-body-color dark:text-dark-6">{benefit.text}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Feature List -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Co Zawiera Abonament?
+        </h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          {
+            offerDetails.features.map((feature, index) => (
+              <div
+                data-animate
+                class="flex items-start gap-4 rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
+                <span class="mt-1 text-primary">▹</span>
+                <p class="text-lg text-body-color dark:text-dark-6">{feature}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Comparison Section -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Porównanie Modeli
+        </h2>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="rounded-xl bg-white p-8 dark:bg-dark-2">
+            <h3 class="mb-4 text-2xl font-bold text-dark dark:text-white">Standard</h3>
+            <div class="mb-6">
+              <span class="text-3xl font-bold text-primary">3200 zł</span>
+              <span class="block text-body-color dark:text-dark-6">jednorazowo</span>
+            </div>
+            <ul class="space-y-4 text-body-color dark:text-dark-6">
+              <li class="flex items-center gap-2">5 podstron</li>
+              <li class="flex items-center gap-2">Hosting 12 miesięcy</li>
+              <li class="flex items-center gap-2">Podstawowe SEO</li>
+            </ul>
+          </div>
+
+          <div class="relative rounded-xl bg-primary p-8 text-white">
+            <div class="absolute right-0 top-0 rounded-bl-xl rounded-tr-xl bg-white/20 px-6 py-2">
+              Polecany
+            </div>
+            <h3 class="mb-4 text-2xl font-bold">Abonament</h3>
+            <div class="mb-6">
+              <span class="text-3xl font-bold">199 zł</span>
+              <span class="block">opłata miesięczna</span>
+            </div>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-2">Do 10 podstron</li>
+              <li class="flex items-center gap-2">Hosting i domena w cenie</li>
+              <li class="flex items-center gap-2">Pełne wsparcie SEO</li>
+            </ul>
+          </div>
+
+          <div class="rounded-xl bg-white p-8 dark:bg-dark-2">
+            <h3 class="mb-4 text-2xl font-bold text-dark dark:text-white">E-commerce</h3>
+            <div class="mb-6">
+              <span class="text-3xl font-bold text-primary">7900 zł</span>
+              <span class="block text-body-color dark:text-dark-6">jednorazowo</span>
+            </div>
+            <ul class="space-y-4 text-body-color dark:text-dark-6">
+              <li class="flex items-center gap-2">Nielimitowane produkty</li>
+              <li class="flex items-center gap-2">System płatności</li>
+              <li class="flex items-center gap-2">Zaawansowane SEO</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Process Section -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Jak Działa Abonament?
+        </h2>
+        <div class="grid gap-8 md:grid-cols-4">
+          <ProcessStep
+            number="1"
+            title="Konsultacja"
+            text="Omawiamy Twoje potrzeby i cele biznesowe"
+          />
+          <ProcessStep number="2" title="Projekt" text="Przygotowuję wstępną koncepcję strony" />
+          <ProcessStep number="3" title="Realizacja" text="Rozwijam pełną funkcjonalność w 7 dni" />
+          <ProcessStep number="4" title="Uruchomienie" text="Strona działa i generuje leady" />
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Najczęstsze Pytania
+        </h2>
+        <div class="mx-auto max-w-3xl space-y-4">
+          <!-- Pytanie 1 -->
+          <div
+            data-animate
+            class="group rounded-xl bg-white p-6 transition-all hover:shadow-xl dark:bg-dark-2">
+            <details class="relative">
+              <summary class="flex cursor-pointer items-center justify-between gap-4">
+                <span class="text-lg font-semibold text-dark dark:text-white"
+                  >Jak wygląda proces rozpoczęcia współpracy?</span
+                >
+                <span
+                  class="shrink-0 text-primary transition-transform duration-300 group-open:rotate-180"
+                  >▼</span
+                >
+              </summary>
+              <div class="mt-4 border-t border-gray-100 pt-4 dark:border-dark-3">
+                <p class="text-body-color dark:text-dark-6">
+                  1. Bezpłatna konsultacja online<br />
+                   2. Przedstawiam projekt strony<br />
+                   3. Podpisanie umowy cyfrowej<br />
+                   4. Uruchomienie strony do 7 dni!
+                </p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Pytanie 2 -->
+          <div
+            data-animate
+            class="group rounded-xl bg-white p-6 transition-all hover:shadow-xl dark:bg-dark-2">
+            <details class="relative">
+              <summary class="flex cursor-pointer items-center justify-between gap-4">
+                <span class="text-lg font-semibold text-dark dark:text-white"
+                  >Czy mogę zmienić pakiet w trakcie trwania umowy?</span
+                >
+                <span
+                  class="shrink-0 text-primary transition-transform duration-300 group-open:rotate-180"
+                  >▼</span
+                >
+              </summary>
+              <div class="mt-4 border-t border-gray-100 pt-4 dark:border-dark-3">
+                <p class="text-body-color dark:text-dark-6">
+                  Niestety ale nie. Umowa jest zawierana na 12 miesięcy, a zmiana pakietu jest
+                  możliwa po jej zakończeniu. W trakcie trwania umowy możemy dostosować treści i
+                  funkcjonalności, ale nie zmieniamy pakietów.
+                </p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Pytanie 3 -->
+          <div class="mx-auto max-w-3xl space-y-6">
+            <div data-animate class="rounded-xl bg-white p-6 dark:bg-dark-2">
+              <details class="group">
+                <summary
+                  class="flex cursor-pointer items-center justify-between font-semibold text-dark dark:text-white">
+                  <span class="text-lg font-semibold text-dark dark:text-white"
+                    >Co się dzieje po zakończeniu umowy?</span
+                  >
+                  <span
+                    class="shrink-0 text-primary transition-transform duration-300 group-open:rotate-180"
+                    >▼</span
+                  >
+                </summary>
+                <p class="mt-4 text-body-color dark:text-dark-6">
+                  Po upływie 12 miesięcy, umowa przechodzi na czas nieokreślony, chyba że
+                  zdecydujesz się ją zakończyć. W przypadku zakończenia umowy, pozostajesz
+                  właścicielem domeny, natomiast strona zostaje zdjęta. Jeśli jednak strona przynosi
+                  nowych klientów, wspólnie kontynuujemy współpracę, wspinając się w wynikach
+                  wyszukiwania. Jeśli efekty są niezadowalające, to prawdopodobnie strona nie jest
+                  skuteczna i nie ma sensu jej dalsze utrzymywanie. Istnieje możliwość wykupienia
+                  strony, ale nie zawsze jest to opłacalne, jeśli nie przynosi zamierzonych
+                  rezultatów. Moim celem jest długoterminowa współpraca, dlatego zależy mi na tym,
+                  aby strona przynosiła efekty.
+                </p>
+              </details>
+            </div>
+            <!-- Pytanie 4 -->
+            <div
+              data-animate
+              class="group rounded-xl bg-white p-6 transition-all hover:shadow-xl dark:bg-dark-2">
+              <details class="relative">
+                <summary class="flex cursor-pointer items-center justify-between gap-4">
+                  <span class="text-lg font-semibold text-dark dark:text-white"
+                    >Jak wygląda wsparcie techniczne?</span
+                  >
+                  <span
+                    class="shrink-0 text-primary transition-transform duration-300 group-open:rotate-180"
+                    >▼</span
+                  >
+                </summary>
+                <div class="mt-4 border-t border-gray-100 pt-4 dark:border-dark-3">
+                  <div class="flex flex-col gap-4">
+                    <div class="flex items-center gap-3">
+                      <div class="rounded-full bg-green-100 p-2 dark:bg-dark-3">
+                        <svg
+                          class="h-5 w-5 text-green-600 dark:text-green-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24">
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <div class="font-semibold text-dark dark:text-white">24/7 Monitoring</div>
+                        <p class="text-sm text-body-color dark:text-dark-6">
+                          Natychmiastowe wykrywanie awarii
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <div class="rounded-full bg-blue-100 p-2 dark:bg-dark-3">
+                        <svg
+                          class="h-5 w-5 text-blue-600 dark:text-blue-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24">
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <div class="font-semibold text-dark dark:text-white">
+                          Średni czas reakcji: 27 minut
+                        </div>
+                        <p class="text-sm text-body-color dark:text-dark-6">
+                          Gwarancja odpowiedzi w 2h robocze
+                        </p>
+                      </div>
+                    </div>
+                    <p class="text-body-color dark:text-dark-6">
+                      Jeżeli chcesz zaktualizować treści, dodać nowe sekcje lub masz pytania
+                      dotyczące funkcjonalności, napisz do mnie, zadzwoń lub skontatuj się mailowo.
+                      Wszystkie zgłoszenia są rozpatrywane w ciągu 72h.
+                    </p>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Pytanie 5 -->
+            <div
+              data-animate
+              class="group rounded-xl bg-white p-6 transition-all hover:shadow-xl dark:bg-dark-2">
+              <details class="relative">
+                <summary class="flex cursor-pointer items-center justify-between gap-4">
+                  <span class="text-lg font-semibold text-dark dark:text-white"
+                    >Czy mogę dodać własną domenę?</span
+                  >
+                  <span
+                    class="shrink-0 text-primary transition-transform duration-300 group-open:rotate-180"
+                    >▼</span
+                  >
+                </summary>
+                <div class="mt-4 border-t border-gray-100 pt-4 dark:border-dark-3">
+                  <p class="text-body-color dark:text-dark-6">
+                    Oczywiście! Wspieramy wszystkie popularne rozszerzenia:
+                    <div class="mt-3 flex flex-wrap gap-2">
+                      <span class="rounded-full bg-gray-100 px-3 py-1 text-sm dark:bg-dark-3"
+                        >.pl</span
+                      >
+                      <span class="rounded-full bg-gray-100 px-3 py-1 text-sm dark:bg-dark-3"
+                        >.com</span
+                      >
+                      <span class="rounded-full bg-gray-100 px-3 py-1 text-sm dark:bg-dark-3"
+                        >.eu</span
+                      >
+                      <span class="rounded-full bg-gray-100 px-3 py-1 text-sm dark:bg-dark-3"
+                        >.online</span
+                      >
+                    </div>
+                  </p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technology Stack -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Nowoczesne Technologie
+        </h2>
+        <ClientLogos />
+        <p class="mt-8 text-center text-body-color dark:text-dark-6">
+          Gwarantuję najwyższą wydajność i bezpieczeństwo dzięki sprawdzonym rozwiązaniom
+        </p>
+      </div>
+      <div class="mb-20 overflow-x-auto rounded-xl shadow-xl dark:bg-dark-2">
+        <table class="w-full min-w-[800px]">
+          <thead class="bg-primary text-white dark:bg-primary/90">
+            <tr>
+              <th class="w-[40%] p-6 text-left">Funkcja</th>
+              <th class="w-[20%] p-6 text-left">Abonament</th>
+              <th class="w-[20%] p-6 text-left">Strona Jednorazowa</th>
+              <th class="w-[20%] p-6 text-left">WordPress</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-dark-3">
+            <!-- INWESTYCJA -->
+            <tr class="bg-gray-100 dark:bg-dark-3">
+              <td colspan="4" class="p-4 font-bold text-dark dark:text-white">Inwestycja</td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-dark-2">
+              <td class="flex items-start gap-3 p-4 text-dark dark:text-white">
+                <span>🚀</span>
+                <span>Koszt startowy</span>
+              </td>
+              <td class="p-4 font-bold text-green-600 dark:text-green-400">0 zł</td>
+              <td class="p-4 text-dark dark:text-gray-300">3 200 - 15 000 zł</td>
+              <td class="p-4 text-dark dark:text-gray-300">1 500 - 5 000 zł</td>
+            </tr>
+
+            <!-- INFRASTRUKTURA -->
+            <tr class="bg-gray-100 dark:bg-dark-3">
+              <td colspan="4" class="p-4 font-bold text-dark dark:text-white">Infrastruktura</td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-dark-2">
+              <td class="flex items-start gap-3 p-4 text-dark dark:text-white">
+                <span>🔒</span>
+                <span>Hosting + Domena</span>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-green-600 dark:text-green-400">
+                  <span>✅</span>
+                  <span>W cenie</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⏳</span>
+                  <span>1 rok gratis</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>❌</span>
+                  <span>Dodatkowy koszt</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- WYDAJNOŚĆ -->
+            <tr class="bg-gray-100 dark:bg-dark-3">
+              <td colspan="4" class="p-4 font-bold text-dark dark:text-white">Wydajność</td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-dark-2">
+              <td class="flex items-start gap-3 p-4 text-dark dark:text-white">
+                <span>⚡</span>
+                <span>Ładowanie &lt;1s</span>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-green-600 dark:text-green-400">
+                  <span>✅</span>
+                  <span>Gwarancja</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⚠️</span>
+                  <span>Zależne od projektu</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>❌</span>
+                  <span>Średnio 3-5s</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- BEZPIECZEŃSTWO -->
+            <tr class="bg-gray-100 dark:bg-dark-3">
+              <td colspan="4" class="p-4 font-bold text-dark dark:text-white">Bezpieczeństwo</td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-dark-2">
+              <td class="flex items-start gap-3 p-4 text-dark dark:text-white">
+                <span>🛡️</span>
+                <span>Aktualizacje bezpieczeństwa</span>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-green-600 dark:text-green-400">
+                  <span>✅</span>
+                  <span>Automatyczne</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⚠️</span>
+                  <span>Ręczne</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⚠️</span>
+                  <span>Przez wtyczki</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- WSPARCIE -->
+            <tr class="bg-gray-100 dark:bg-dark-3">
+              <td colspan="4" class="p-4 font-bold text-dark dark:text-white">Wsparcie</td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-dark-2">
+              <td class="flex items-start gap-3 p-4 text-dark dark:text-white">
+                <span>⏱️</span>
+                <span>Czas reakcji</span>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-green-600 dark:text-green-400">
+                  <span>✅</span>
+                  <span>do 72 godzin</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⏳</span>
+                  <span>3-5 dni</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⚠️</span>
+                  <span>Zależne od dostawcy</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- SEO -->
+            <tr class="bg-gray-100 dark:bg-dark-3">
+              <td colspan="4" class="p-4 font-bold text-dark dark:text-white">SEO</td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-dark-2">
+              <td class="flex items-start gap-3 p-4 text-dark dark:text-white">
+                <span>🔍</span>
+                <span>Optymalizacja techniczna</span>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-green-600 dark:text-green-400">
+                  <span>✅</span>
+                  <span>Pełna</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⚠️</span>
+                  <span>Podstawowa</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⚠️</span>
+                  <span>Wymaga wtyczek</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="bg-gray-100 dark:bg-dark-3">
+              <td colspan="4" class="p-4 font-bold text-dark dark:text-white"
+                >Zarządzanie treścią (CMS)</td
+              >
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-dark-2">
+              <td class="flex items-start gap-3 p-4 text-dark dark:text-white">
+                <span>📝</span>
+                <span>Zarządzanie treścią</span>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-green-600 dark:text-green-400">
+                  <span>✅</span>
+                  <span>Pełne</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>❌</span>
+                  <span>Zmiany ręcznie w kodzie</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⚠️</span>
+                  <span>Zależne od wtyczek CMS</span>
+                </div>
+              </td>
+            </tr>
+            <!-- ROZSZERZENIA -->
+            <tr class="bg-gray-100 dark:bg-dark-3">
+              <td colspan="4" class="p-4 font-bold text-dark dark:text-white">Integracje</td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-dark-2">
+              <td class="flex items-start gap-3 p-4 text-dark dark:text-white">
+                <span>📧</span>
+                <span>System newsletterowy</span>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-green-600 dark:text-green-400">
+                  <span>✅</span>
+                  <span>Integracja zewnętrzna</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-green-600 dark:text-green-400">
+                  <span>✅</span>
+                  <span>Integracja zewnętrzna</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⚠️</span>
+                  <span>Wtyczki (+100 zł/mc)</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- PRAWNE -->
+            <tr class="bg-gray-100 dark:bg-dark-3">
+              <td colspan="4" class="p-4 font-bold text-dark dark:text-white">Prawne</td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-dark-2">
+              <td class="flex items-start gap-3 p-4 text-dark dark:text-white">
+                <span>⚖️</span>
+                <span>RODO/GDPR</span>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-green-600 dark:text-green-400">
+                  <span>✅</span>
+                  <span>Automatyczne</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⚠️</span>
+                  <span>Samodzielnie</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⚠️</span>
+                  <span>Konfiguracja</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- KOSZTY -->
+            <tr class="bg-gray-100 dark:bg-dark-3">
+              <td colspan="4" class="p-4 font-bold text-dark dark:text-white">Koszty</td>
+            </tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-dark-2">
+              <td class="flex items-start gap-3 p-4 text-dark dark:text-white">
+                <span>💰</span>
+                <span>Przewidywalność kosztów</span>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-green-600 dark:text-green-400">
+                  <span>✅</span>
+                  <span>Stała stawka</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>⚠️</span>
+                  <span>Nieprzewidziane opłaty</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-2 text-dark dark:text-gray-300">
+                  <span>❌</span>
+                  <span>Ukryte koszty</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- PODSUMOWANIE -->
+            <tr class="bg-green-50 dark:bg-dark-3">
+              <td class="p-4 font-bold text-dark dark:text-white">KOSZT 5-LETNI</td>
+              <td class="p-4 font-bold text-green-600 dark:text-green-400">11 940 zł</td>
+              <td class="p-4 text-dark dark:text-gray-300">~18 000 zł</td>
+              <td class="p-4 text-dark dark:text-gray-300">~25 000 zł</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div id="order" class="custom-bg relative overflow-hidden p-8 text-center text-white">
+      <div class="absolute inset-0 bg-black/30"></div>
+      <div class="relative z-10">
+        <h2 class="text-3xl font-bold">Zacznijmy Twój Projekt Już Dziś!</h2>
+        <div class="mt-6 flex justify-center gap-4">
+          <Button href="/kontakt" text="Rozpocznij teraz" />
+          <Button href="/portfolio" text="Zobacz Przykłady" />
+        </div>
+        <div class="mt-8 inline-flex items-center gap-2 text-sm">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+            ></path>
+          </svg>
+          <span>Bezpieczna transakcja i pełna poufność</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* .custom-bg {
+    background: linear-gradient(45deg, #1e3a8a 0%, #2563eb 100%);
+  } */
+
+  /* Domyślne style dla ikon */
+  td[class*='text-green'] svg {
+    @apply h-5 w-5 flex-shrink-0;
+  }
+
+  /* Spójne odstępy */
+  td {
+    @apply align-top;
+    min-height: 3rem;
+  }
+
+  /* Dark mode transitions */
+  .dark table {
+    @apply transition-colors duration-300;
+  }
+</style>

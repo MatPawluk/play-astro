@@ -1,0 +1,83 @@
+---
+import Breadcrumb from '../../components/layout/Breadcrumb.astro';
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/layout/Button.astro';
+
+const offerDetails = {
+  title: 'Sklepy Internetowe',
+  price: 'od 7900 zł',
+  description: 'Kompleksowe rozwiązania e-commerce dla Twojego biznesu',
+  features: [
+    'Niestandardowy projekt sklepu',
+    'Integracja z Shopify/WordPress WooCommerce',
+    'System płatności online',
+    'Integracja z systemami wysyłkowymi',
+    'Panel zarządzania produktami',
+    'Optymalizacja pod kątem konwersji',
+    'Szkolenie z obsługi sklepu',
+    'Roczna gwarancja'
+  ],
+  integrations: [
+    { logo: '/logos/shopify.svg', name: 'Shopify' },
+    { logo: '/logos/woocommerce.svg', name: 'WooCommerce' },
+    { logo: '/logos/payu.svg', name: 'PayU' },
+    { logo: '/logos/dpd.svg', name: 'DPD' }
+  ]
+};
+---
+
+<Layout
+  description="Profesjonalne sklepy internetowe od 7900 zł. Kompleksowa realizacja, integracje z systemami płatności i wysyłki."
+  title="Sklepy Internetowe | E-commerce | Pawluk Studio">
+  
+  <Breadcrumb>
+    <Fragment slot="title">E-commerce</Fragment>
+  </Breadcrumb>
+
+  <section class="pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
+    <div class="container">
+      <div class="mb-16 text-center">
+        <h1 class="text-4xl font-bold text-dark dark:text-white md:text-5xl">{offerDetails.title}</h1>
+        <div class="mt-6">
+          <span class="text-3xl font-bold text-primary">{offerDetails.price}</span>
+        </div>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-body-color dark:text-dark-6">{offerDetails.description}</p>
+        <div class="mt-8">
+          <Button href="#kontakt" text="Zamów konsultację" />
+        </div>
+      </div>
+
+      <div class="mb-20">
+        <h2 class="mb-8 text-3xl font-bold text-dark dark:text-white">Kluczowe funkcje</h2>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {offerDetails.features.map((feature, index) => (
+            <div class="rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
+              <div class="mb-4 text-2xl text-primary">0{index + 1}</div>
+              <p class="text-body-color dark:text-dark-6">{feature}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mb-20">
+        <h2 class="mb-8 text-3xl font-bold text-dark dark:text-white">Integracje</h2>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {offerDetails.integrations.map(integration => (
+            <div class="flex items-center justify-center gap-4 rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
+              <img src={integration.logo} alt={integration.name} class="h-12 w-auto" loading="lazy" />
+              <span class="text-body-color dark:text-dark-6">{integration.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="rounded-xl bg-dark p-8 text-center text-white">
+        <h3 class="text-2xl font-bold">Specjalna oferta dla nowych klientów!</h3>
+        <p class="mt-4">Darmowa integracja z systemem płatności przy zamówieniu do końca miesiąca</p>
+        <div class="mt-6">
+          <Button href="#kontakt" text="Skorzystaj z oferty"/>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

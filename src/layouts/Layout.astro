@@ -250,6 +250,16 @@ const { description, title, image } = Astro.props;
           transform: translateY(0);
         }
       }
+      details[open] summary svg {
+        transform: rotate(180deg);
+      }
+
+      .button-hover {
+        transition: transform 0.3s ease;
+      }
+      .button-hover:hover {
+        transform: translateY(-2px);
+      }
     </style>
     <script>
       import '../scripts/taos.js';

@@ -1,0 +1,91 @@
+---
+import Breadcrumb from '../../components/layout/Breadcrumb.astro';
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/layout/Button.astro';
+
+const offerDetails = {
+  title: 'Pakiet Standard',
+  price: '3200 zł',
+  description: 'Kompleksowe rozwiązanie dla firm potrzebujących profesjonalnej wizytówki online',
+  features: [
+    'Projekt i wdrożenie strony od podstaw',
+    'Do 5 podstron',
+    'Hosting + domena gratis na 12 miesięcy',
+    'Certyfikat SSL w cenie',
+    'Podstawowa optymalizacja SEO',
+    'Responsywny design',
+    'Szkolenie z obsługi CMS',
+    'Gwarancja 12 miesięcy'
+  ],
+  image: '/images/standard-package.jpg'
+};
+---
+
+<Layout
+  description="Profesjonalna strona wizytówka dla Twojej firmy - Pakiet Standard 3200 zł. Szybka realizacja, hosting i domena w cenie!"
+  title="Pakiet Standard | Strony WWW | Pawluk Studio">
+  
+  <Breadcrumb>
+    <Fragment slot="title">Pakiet Standard</Fragment>
+  </Breadcrumb>
+
+  <section class="pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
+    <div class="container">
+      <div class="mb-16 grid gap-8 md:grid-cols-2">
+        <div>
+          <h1 class="text-4xl font-bold text-dark dark:text-white md:text-5xl">{offerDetails.title}</h1>
+          <div class="mt-6 flex items-center gap-4">
+            <span class="text-3xl font-bold text-primary">{offerDetails.price}</span>
+            <span class="text-lg text-body-color dark:text-dark-6">jednorazowa inwestycja</span>
+          </div>
+          <p class="mt-6 text-lg text-body-color dark:text-dark-6">{offerDetails.description}</p>
+          <div class="mt-8">
+            <Button href="#kontakt" text="Zamów teraz" />
+          </div>
+        </div>
+        <img 
+          src={offerDetails.image} 
+          alt={offerDetails.title}
+          class="rounded-lg shadow-xl"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
+          <h3 class="mb-4 text-xl font-bold text-dark dark:text-white">Mobile First</h3>
+          <p class="text-body-color dark:text-dark-6">Projektowanie zaczynamy od wersji mobilnej gwarantując najlepszą wydajność</p>
+        </div>
+        <div class="rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
+          <h3 class="mb-4 text-xl font-bold text-dark dark:text-white">SEO Ready</h3>
+          <p class="text-body-color dark:text-dark-6">Wbudowana optymalizacja pod kątem wyszukiwarek internetowych</p>
+        </div>
+        <div class="rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
+          <h3 class="mb-4 text-xl font-bold text-dark dark:text-white">Średni czas realizacji</h3>
+          <p class="text-body-color dark:text-dark-6">10-14 dni roboczych</p>
+        </div>
+        <div class="rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
+          <h3 class="mb-4 text-xl font-bold text-dark dark:text-white">Wsparcie</h3>
+          <p class="text-body-color dark:text-dark-6">12 miesięcy gwarancji + pomoc techniczna</p>
+        </div>
+      </div>
+
+      <div class="mb-20">
+        <h2 class="mb-8 text-3xl font-bold text-dark dark:text-white">Co zawiera pakiet?</h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          {offerDetails.features.map((feature, index) => (
+            <div class="flex items-start gap-4">
+              <span class="mt-1 text-primary">✔</span>
+              <p class="text-lg text-body-color dark:text-dark-6">{feature}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="text-center">
+        <h2 class="mb-8 text-3xl font-bold text-dark dark:text-white">Gotowy na zmianę?</h2>
+        <Button href="#kontakt" text="Zacznijmy współpracę" />
+      </div>
+    </div>
+  </section>
+</Layout>

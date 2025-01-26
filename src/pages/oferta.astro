@@ -1,0 +1,754 @@
+---
+import Breadcrumb from '../components/layout/Breadcrumb.astro';
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/layout/Button.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import ProcessStep from '../components/ProcessStep.astro';
+
+const packages = [
+  {
+    name: 'Standard',
+    price: '3200 zł',
+    type: 'jednorazowo',
+    features: [
+      'Projekt i wdrożenie strony',
+      'Do 5 podstron',
+      'Hosting + domena na rok',
+      'Certyfikat SSL',
+      'Optymalizacja SEO',
+      'Responsywny design',
+      '12 miesięcy gwarancji',
+    ],
+    cta: 'Zamów teraz',
+    link: '/oferta/standard',
+  },
+  {
+    name: 'Abonament',
+    price: '199 zł/mc',
+    type: 'abonament miesięczny',
+    features: [
+      '0 zł opłat początkowych',
+      'Do 10 podstron',
+      'Hosting i domena w cenie',
+      'Aktualizacje treści',
+      'Wsparcie 24/7',
+      'Kopie zapasowe',
+      'Raporty SEO',
+    ],
+    cta: 'Wypróbuj',
+    link: '/oferta/abonament',
+  },
+  {
+    name: 'E-commerce',
+    price: 'od 7900 zł',
+    type: 'sklep internetowy',
+    features: [
+      'Niestandardowy projekt',
+      'Integracja z systemami płatności',
+      'Panel zarządzania produktami',
+      'Optymalizacja konwersji',
+      'Integracja z dostawcami',
+      'Szkolenie z obsługi',
+      'Roczna gwarancja',
+    ],
+    cta: 'Zbuduj sklep',
+    link: '/oferta/ecommerce',
+  },
+];
+
+const features = [
+  {
+    title: 'Mobile First',
+    icon: `
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+      </svg>
+    `,
+    description: 'Projektowanie od wersji mobilnej',
+  },
+  {
+    title: 'SEO',
+    icon: `
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+      </svg>
+    `,
+    description: 'Pełna optymalizacja pod wyszukiwarki',
+  },
+  {
+    title: 'Prędkość',
+    icon: `
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M13 10h7l-9 13v-9H4l9-13v9z"/>
+      </svg>
+    `,
+    description: 'Ładowanie w mniej niż 1s',
+  },
+  {
+    title: 'Bezpieczeństwo',
+    icon: `
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+      </svg>
+    `,
+    description: 'Dzienne kopie zapasowe',
+  },
+  {
+    title: 'Wsparcie',
+    icon: `
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+      </svg>
+    `,
+    description: 'Bezpośredni kontakt z deweloperem',
+  },
+  {
+    title: 'Gwarancja',
+    icon: `
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+    `,
+    description: 'Minimum 12 miesięcy ochrony',
+  },
+];
+---
+
+<Layout
+  description="Pełna oferta Pawluk Studio - profesjonalne strony internetowe, sklepy online i rozwiązania abonamentowe. Wybierz pakiet idealny dla Twojego biznesu!"
+  title="Pełna Oferta | Strony WWW | Pawluk Studio">
+  <Breadcrumb>
+    <Fragment slot="title">Pełna Oferta</Fragment>
+  </Breadcrumb>
+
+  <section class="pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
+    <div class="container">
+      <!-- Hero Section -->
+      <div class="mb-16 text-center">
+        <h1 data-animate class="text-4xl font-bold text-dark dark:text-white md:text-5xl">
+          Kompletne Rozwiązania Internetowe
+        </h1>
+        <p data-animate class="mx-auto mt-6 max-w-2xl text-lg text-body-color dark:text-dark-6">
+          Od prostych wizytówek po zaawansowane sklepy internetowe - wybierz rozwiązanie idealne dla
+          Twoich potrzeb
+        </p>
+      </div>
+
+      <!-- Package Cards -->
+      <div class="-mx-4 mb-20 flex flex-wrap justify-between">
+        {
+          packages.map(pkg => (
+            <div data-animate class="mb-10 mt-4 w-full px-4 md:w-1/2  lg:w-1/3">
+              <div class="relative z-10 mb-10 flex h-full flex-col flex-wrap justify-between overflow-hidden rounded-xl bg-white px-8 py-10 shadow-pricing dark:bg-dark-2 sm:p-12 lg:px-6 lg:py-10 xl:p-14 ">
+                {pkg.name === 'Abonament' && (
+                  <div class="absolute right-0 top-0 rounded-bl-xl rounded-tr-xl bg-primary px-6 py-2 text-white">
+                    Najpopularniejsze
+                  </div>
+                )}
+                <h3 class="mb-4 text-2xl font-bold text-dark dark:text-white">{pkg.name}</h3>
+                <div class="mb-6">
+                  <span class="text-4xl font-bold text-dark dark:text-white xl:text-[42px]">
+                    {pkg.price}
+                  </span>
+                  <span class="block text-body-color dark:text-dark-6">{pkg.type}</span>
+                </div>
+                <ul class="mb-8 space-y-4">
+                  {pkg.features.map(feature => (
+                    <li class="flex items-center gap-2 text-body-color dark:text-dark-6">
+                      <span class="text-primary">▹</span> {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Button href={pkg.link} text={pkg.cta} />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Feature Grid -->
+      <div class="mb-20">
+        <h2
+          data-animate
+          class="mb-12 text-center text-4xl font-bold text-dark dark:text-white md:text-5xl">
+          Dlaczego Warto Mnie Wybrać?
+        </h2>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {
+            features.map(feature => (
+              <div
+                data-animate
+                class="group relative overflow-hidden rounded-2xl bg-white/80 p-8 text-left shadow-xl shadow-dark/10 transition-all duration-300 hover:shadow-2xl dark:bg-dark-2 dark:shadow-black/30">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 opacity-0 transition-opacity duration-300 " />
+
+                <div class="mb-6 inline-flex rounded-lg p-4 transition-transform duration-300 group-hover:-translate-y-1">
+                  <span
+                    class="text-dark dark:text-white [&>svg]:h-8 [&>svg]:w-8 [&>svg]:stroke-[1.5]"
+                    set:html={feature.icon}
+                  />
+                </div>
+
+                <h3 class="mb-4 text-2xl font-semibold text-dark dark:text-white">
+                  {feature.title}
+                </h3>
+                <p class="text-lg leading-relaxed text-body-color dark:text-dark-6">
+                  {feature.description}
+                </p>
+
+                <div class="mt-6 w-16 border-b-2 border-primary opacity-0 transition-all duration-300 group-hover:w-24 group-hover:opacity-100" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="mb-20">
+        <h2
+          data-animate
+          class="mb-12 text-center text-4xl font-bold text-dark dark:text-white md:text-5xl">
+          Kompleksowa Optymalizacja
+        </h2>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div
+            data-animate
+            class="flex h-full flex-col justify-between rounded-xl bg-white p-6 dark:bg-dark-2">
+            <div>
+              <div class="mb-4 flex items-center gap-4">
+                <svg
+                  class="h-8 w-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+                <h3 class="text-xl font-semibold text-dark dark:text-white">Google Analytics</h3>
+              </div>
+              <p class="text-body-color dark:text-dark-6">
+                Monitoruj ruch na stronie w czasie rzeczywistym. Dowiedz się jakie treści
+                przyciągają klientów i optymalizuj konwersje.
+              </p>
+            </div>
+          </div>
+
+          <div
+            data-animate
+            class="flex h-full flex-col justify-between rounded-xl bg-white p-6 dark:bg-dark-2">
+            <div>
+              <div class="mb-4 flex items-center gap-4">
+                <svg
+                  class="h-8 w-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  ></path>
+                </svg>
+                <h3 class="text-xl font-semibold text-dark dark:text-white">
+                  Google Search Console
+                </h3>
+              </div>
+              <p class="text-body-color dark:text-dark-6">
+                Stały monitoring pozycji w wyszukiwarce. Usuwam błędy indeksowania i dbamy o
+                prawidłową widoczność strony.
+              </p>
+            </div>
+          </div>
+
+          <div
+            data-animate
+            class="flex h-full flex-col justify-between rounded-xl bg-white p-6 dark:bg-dark-2">
+            <div>
+              <div class="mb-4 flex items-center gap-4">
+                <svg
+                  class="h-8 w-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <h3 class="text-xl font-semibold text-dark dark:text-white">Wizytówka Google</h3>
+              </div>
+              <p class="text-body-color dark:text-dark-6">
+                Profesjonalny profil firmy w Google. Zwiększam lokalną widoczność i ułatwiamy
+                klientom znalezienie Twojej firmy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sekcja Wyjasniajaca -->
+      <div class="mb-20">
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div data-animate class="rounded-xl bg-white p-8 dark:bg-dark-2">
+            <h3 class="mb-4 text-2xl font-bold text-dark dark:text-white">
+              Dlaczego SEO ma znaczenie?
+            </h3>
+            <p class="mb-6 text-body-color dark:text-dark-6">
+              Optymalizacja pod kątem wyszukiwarek to inwestycja długoterminowa. Dzięki:
+            </p>
+            <ul class="space-y-4 text-body-color dark:text-dark-6">
+              <li class="flex items-center gap-2">✔️ Zwiększonej widoczności w Google</li>
+              <li class="flex items-center gap-2">✔️ Stałemu napływowi organicznego ruchu</li>
+              <li class="flex items-center gap-2">✔️ Wyższej konwersji dzięki trafnym frazom</li>
+            </ul>
+          </div>
+
+          <div data-animate class="rounded-xl bg-white p-8 dark:bg-dark-2">
+            <h3 class="mb-4 text-2xl font-bold text-dark dark:text-white">Szybkość = Sukces</h3>
+            <p class="mb-6 text-body-color dark:text-dark-6">
+              Strona ładująca się w 1 sekundę ma do 5x większą konwersję! Dbamy o:
+            </p>
+            <ul class="space-y-4 text-body-color dark:text-dark-6">
+              <li class="flex items-center gap-2">⚡ Optymalizację obrazów i kodu</li>
+              <li class="flex items-center gap-2">⚡ Nowoczesne formaty WEBP/AVIF</li>
+              <li class="flex items-center gap-2">⚡ Cache i Content Delivery Network</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Comparison Table -->
+      <div class="mb-20 overflow-x-auto">
+        <h2
+          data-animate
+          class="apper mb-10 text-center text-3xl font-bold text-dark dark:text-white">
+          Porównanie Pakietów
+        </h2>
+        <table class="apper hidden w-full min-w-[600px] md:table">
+          <thead>
+            <tr class="border-b border-gray-200 dark:border-dark-3">
+              <th class="pb-4 text-left text-dark dark:text-white">Funkcja</th>
+              {
+                packages.map(pkg => (
+                  <th class="pb-4 text-center text-dark dark:text-white">{pkg.name}</th>
+                ))
+              }
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200 dark:border-dark-3">
+              <td class="py-4 text-dark dark:text-white">Liczba podstron</td>
+              <td class="text-center text-dark dark:text-white">5</td>
+              <td class="text-center text-dark dark:text-white">5</td>
+              <td class="text-center text-dark dark:text-white">∞</td>
+            </tr>
+            <tr class="border-b border-gray-200 text-dark dark:border-dark-3 dark:text-white">
+              <td class="py-4">Optymalizacja SEO</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">✔</td>
+            </tr>
+            <tr class="border-b border-gray-200 text-dark dark:border-dark-3 dark:text-white">
+              <td class="py-4">Hosting</td>
+              <td class="text-center">12 miesięcy</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">-</td>
+            </tr>
+            <tr class="border-b border-gray-200 text-dark dark:border-dark-3 dark:text-white">
+              <td class="py-4">Domena</td>
+              <td class="text-center">rok Gratis</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">rok Gratis</td>
+            </tr>
+            <tr class="border-b border-gray-200 text-dark dark:border-dark-3 dark:text-white">
+              <td class="py-4">Certyfikat SSL</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">✔</td>
+            </tr>
+            <tr class="border-b border-gray-200 text-dark dark:border-dark-3 dark:text-white">
+              <td class="py-4">Wsparcie 24/7</td>
+              <td class="text-center">-</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">-</td>
+            </tr>
+            <tr class="border-b border-gray-200 text-dark dark:border-dark-3 dark:text-white">
+              <td class="py-4">Aktualizacje</td>
+              <td class="text-center">-</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">-</td>
+            </tr>
+            <tr class="border-b border-gray-200 text-dark dark:border-dark-3 dark:text-white">
+              <td class="py-4">Blog</td>
+              <td class="text-center">Dodatek płatny</td>
+              <td class="text-center">Dodatek płatny</td>
+              <td class="text-center">✔</td>
+            </tr>
+            <tr class="border-b border-gray-200 text-dark dark:border-dark-3 dark:text-white">
+              <td class="py-4">Czas dodatkowego wsparcia</td>
+              <td class="text-center">150 zł/h</td>
+              <td class="text-center">-</td>
+              <td class="text-center">150 zł/h</td>
+            </tr>
+            <tr class="border-b border-gray-200 text-dark dark:border-dark-3 dark:text-white">
+              <td class="py-4">Wizytówka Google</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">✔</td>
+            </tr>
+            <tr class="border-b border-gray-200 text-dark dark:border-dark-3 dark:text-white">
+              <td class="py-4">Podpięcie Google Analytics</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">✔</td>
+            </tr>
+            <tr class="border-b border-gray-200 text-dark dark:border-dark-3 dark:text-white">
+              <td class="py-4">Google Search Console</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">✔</td>
+            </tr>
+            <tr class="border-b border-gray-200 text-dark dark:border-dark-3 dark:text-white">
+              <td class="py-4">Polityka prywatności RODO</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">✔</td>
+              <td class="text-center">✔</td>
+            </tr>
+            <tr class="border-b border-gray-200 dark:border-dark-3 dark:text-white">
+              <td class="py-4">Dodatkowa wersja językowa (angielski, niemiecki)</td>
+              <td class="text-center">Dodatek płatny</td>
+              <td class="text-center">Dodatek płatny</td>
+              <td class="text-center">Dodatek płatny</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="md:hidden">
+          {
+            packages.map(pkg => (
+              <div class="mb-8">
+                <h3 class="mb-4 text-2xl font-bold text-dark dark:text-white">{pkg.name}</h3>
+                <ul class="space-y-4 text-body-color dark:text-dark-6">
+                  <li class="flex justify-between">
+                      <span>Liczba podstron</span>
+                      <span>
+                        {pkg.name === 'Standard' ? '5' : pkg.name === 'Abonament' ? '5' : '∞'}
+                      </span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Optymalizacja SEO</span>
+                      <span>✔</span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Hosting</span>
+                      <span>
+                        {pkg.name === 'Standard'
+                          ? '12 miesięcy'
+                          : pkg.name === 'Abonament'
+                          ? '✔'
+                          : '-'}
+                      </span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Domena</span>
+                      <span>
+                        {pkg.name === 'Standard'
+                          ? 'rok Gratis'
+                          : pkg.name === 'Abonament'
+                          ? '✔'
+                          : 'rok Gratis'}
+                      </span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Certyfikat SSL</span>
+                      <span>✔</span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Wsparcie 24/7</span>
+                      <span>{pkg.name === 'Abonament' ? '✔' : '-'}</span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Aktualizacje</span>
+                      <span>{pkg.name === 'Abonament' ? '✔' : '-'}</span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Blog</span>
+                      <span>{pkg.name === 'E-commerce' ? '✔' : 'Dodatek płatny'}</span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Czas dodatkowego wsparcia</span>
+                      <span>{pkg.name === 'Abonament' ? '-' : '150 zł/h'}</span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Wizytówka Google</span>
+                      <span>✔</span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Podpięcie Google Analytics</span>
+                      <span>✔</span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Google Search Console</span>
+                      <span>✔</span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Polityka prywatności RODO</span>
+                      <span>✔</span>
+                  </li>
+                  <li class="flex justify-between">
+                      <span>Dodatkowa wersja językowa (angielski, niemiecki)</span>
+                      <span>Dodatek płatny</span>
+                  </li>
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <section class="mb-20">
+        <div class="container">
+          <!-- Case Studies
+          <div class="mb-20">
+            <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white md:text-5xl">
+              Realne Efekty dla Klientów
+            </h2>
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              <div data-animate class="overflow-hidden rounded-xl bg-white dark:bg-dark-2">
+                <img 
+                  src="/projects/project1.jpg" 
+                  alt="Sklep ekologiczny" 
+                  class="h-48 w-full object-cover"
+                  loading="lazy"
+                />
+                <div class="p-6">
+                  <h3 class="mb-2 text-xl font-bold">EkoSklep.pl</h3>
+                  <p class="mb-4 text-body-color dark:text-dark-6">
+                    Wzrost ruchu o 230% w ciągu 3 miesięcy dzięki kompleksowemu SEO
+                  </p>
+                  <div class="flex gap-2">
+                    <span class="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">E-commerce</span>
+                    <span class="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-800/30 dark:text-green-500">+45% sprzedaży</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Dodaj więcej case studies -->
+          <!-- </div>
+          </div> -->
+
+          <!-- Proces Realizacji -->
+          <div class="mb-20">
+            <h2
+              data-animate
+              class="mb-12 text-center text-4xl font-bold text-dark dark:text-white md:text-5xl">
+              Jak Działam?
+            </h2>
+            <div class="grid gap-8 md:grid-cols-4">
+              <ProcessStep
+                number="1"
+                title="Briefing"
+                text="Omawiamy Twoje cele i wymagania podczas bezpłatnej konsultacji"
+              />
+              <ProcessStep
+                number="2"
+                title="Projekt"
+                text="Przygotowuje wstępny projekt graficzny do akceptacji"
+              />
+              <ProcessStep
+                number="3"
+                title="Realizacja"
+                text="Rozwijam pełną funkcjonalność strony zgodnie z harmonogramem"
+              />
+              <ProcessStep number="4" title="Wdrożenie" text="Uruchomienie strony na serwerze" />
+            </div>
+          </div>
+
+          <!-- FAQ -->
+          <div class="mb-20">
+            <h2
+              data-animate
+              class="mb-12 text-center text-4xl font-bold text-dark dark:text-white md:text-5xl">
+              Częste Pytania
+            </h2>
+            <div class="mx-auto max-w-3xl space-y-6">
+              <div data-animate class="rounded-xl bg-white p-6 dark:bg-dark-2">
+                <details class="group">
+                  <summary
+                    class="flex cursor-pointer items-center justify-between font-semibold text-dark dark:text-white">
+                    <span>Ile trwa realizacja projektu?</span>
+                    <span class="transition-transform duration-300 group-open:rotate-180">▼</span>
+                  </summary>
+                  <p class="mt-4 text-body-color dark:text-dark-6">
+                    Standardowe strony realizuje w 2-4 tygodnie. Sklepy internetowe wymagają średnio
+                    6-8 tygodni w zależności od złożoności.
+                  </p>
+                </details>
+              </div>
+
+              <div data-animate class="rounded-xl bg-white p-6 dark:bg-dark-2">
+                <details class="group">
+                  <summary
+                    class="flex cursor-pointer items-center justify-between font-semibold text-dark dark:text-white">
+                    <span>Czy mogę później rozszerzyć funkcjonalności?</span>
+                    <span class="transition-transform duration-300 group-open:rotate-180">▼</span>
+                  </summary>
+                  <p class="mt-4 text-body-color dark:text-dark-6">
+                    Oczywiście! Wszystkie projekty tworze z możliwością łatwej rozbudowy. Możesz
+                    dokupić dodatkowe moduły w każdej chwili.
+                  </p>
+                </details>
+              </div>
+              <div data-animate class="rounded-xl bg-white p-6 dark:bg-dark-2">
+                <details class="group">
+                  <summary
+                    class="flex cursor-pointer items-center justify-between font-semibold text-dark dark:text-white">
+                    <span>Czym różni się strona w abonamencie od strony na stałe?</span>
+                    <span class="transition-transform duration-300 group-open:rotate-180">▼</span>
+                  </summary>
+                  <p class="mt-4 text-body-color dark:text-dark-6">
+                    U podstaw obu rozwiązań leży stworzenie strony internetowej. Różnica polega na
+                    tym, że w abonamencie płacisz miesięczną opłatę 199 zł, która obejmuje również
+                    wsparcie techniczne oraz aktualizacje nie ponosząc dodatkowych kosztów.
+                  </p>
+                </details>
+              </div>
+              <div data-animate class="rounded-xl bg-white p-6 dark:bg-dark-2">
+                <details class="group">
+                  <summary
+                    class="flex cursor-pointer items-center justify-between font-semibold text-dark dark:text-white">
+                    <span>Czy moja strona będzie zoptymalizowana pod kątem SEO?</span>
+                    <span class="transition-transform duration-300 group-open:rotate-180">▼</span>
+                  </summary>
+                  <p class="mt-4 text-body-color dark:text-dark-6">
+                    Tak, każda strona, którą tworzę, jest zoptymalizowana pod kątem SEO, aby
+                    zapewnić lepszą widoczność w wynikach wyszukiwania Google.
+                  </p>
+                </details>
+              </div>
+              <div data-animate class="rounded-xl bg-white p-6 dark:bg-dark-2">
+                <details class="group">
+                  <summary
+                    class="flex cursor-pointer items-center justify-between font-semibold text-dark dark:text-white">
+                    <span>Co w przypadku gdy nie chcę kontynuować abonamentu?</span>
+                    <span class="transition-transform duration-300 group-open:rotate-180">▼</span>
+                  </summary>
+                  <p class="mt-4 text-body-color dark:text-dark-6">
+                    Po upływie 12 miesięcy od daty podpisania umowy, masz możliwość zrezygnowania z
+                    abonamentu. W takim przypadku strona zostaje zablokowana, a po zakończeniu
+                    abonamentu, strona zostaje usunięta. Domena pozostaje Twoją własnością. Istnieje
+                    również możliwość odkupienia strony.
+                  </p>
+                </details>
+              </div>
+              <div data-animate class="rounded-xl bg-white p-6 dark:bg-dark-2">
+                <details class="group">
+                  <summary
+                    class="flex cursor-pointer items-center justify-between font-semibold text-dark dark:text-white">
+                    <span>Czy korzystasz z gotowych szablonów?</span>
+                    <span class="transition-transform duration-300 group-open:rotate-180">▼</span>
+                  </summary>
+                  <p class="mt-4 text-body-color dark:text-dark-6">
+                    Korzystam z własnych szablonów, które są tworzone od podstaw oraz ręcznie
+                    kodowane. Dzięki temu Twoja strona będzie unikalna. Nie korzystam z WordPressa
+                    ani innych gotowych systemów CMS.
+                  </p>
+                </details>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technologie -->
+          <div class="mb-20">
+            <h2
+              data-animate
+              class="mb-12 text-center text-4xl font-bold text-dark dark:text-white md:text-5xl">
+              Nowoczesne Technologie
+            </h2>
+            <ClientLogos />
+            <p class="mt-8 text-center text-body-color dark:text-dark-6">
+              Korzystam z wiodących rozwiązań zapewniających najwyższą wydajność i bezpieczeństwo
+            </p>
+          </div>
+
+          <!-- Gwarancje -->
+          <div class="mb-20 grid gap-8 lg:grid-cols-2">
+            <div
+              data-animate
+              class="flex flex-col justify-between rounded-xl bg-primary p-8 text-white">
+              <div>
+                <h3 class="mb-4 text-2xl font-bold">Satysfakcja Gwarantowana!</h3>
+                <p class="mb-4">
+                  Jeśli nie będziesz zadowolony z projektu - zwrócę Ci pieniądze! Zero ryzyka dla
+                  Ciebie i Twojego biznesu.
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Bez ryzyka</span>
+              </div>
+            </div>
+
+            <div
+              data-animate
+              class="flex flex-col justify-between rounded-xl bg-dark-2 p-8 dark:bg-dark">
+              <div>
+                <h3 class="mb-4 text-2xl font-bold text-white">Ochrona Danych</h3>
+                <p class="mb-4 text-dark-6">
+                  Wszystkie projekty zgodne z RODO. Gwarantuje pełne bezpieczeństwo danych Twoich
+                  klientów.
+                </p>
+              </div>
+              <div class="flex items-center gap-2 text-primary">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>Certyfikat SSL dla każdego projektu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Aktualizacja sekcji CTA -->
+      <div class="custom-bg relative mb-10 overflow-hidden rounded-xl p-8 text-center text-white">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative z-10">
+          <h2 class="text-3xl font-bold">Zacznijmy Twój Projekt Już Dziś!</h2>
+          <p class="mt-4 text-lg">
+            Umów bezpłatną konsultację i otrzymaj spersonalizowaną wycenę w 24h
+          </p>
+          <div class="mt-6 flex justify-center gap-4">
+            <Button href="/kontakt" text="Umów Konsultację" />
+            <Button href="/portfolio" text="Zobacz Portfolio" />
+          </div>
+          <div class="mt-8 inline-flex items-center gap-2 text-sm">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              ></path>
+            </svg>
+            <span>Pełna poufność rozmów</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
