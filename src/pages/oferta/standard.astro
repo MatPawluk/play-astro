@@ -1,91 +1,316 @@
 ---
+// src/pages/oferta/standard.astro
 import Breadcrumb from '../../components/layout/Breadcrumb.astro';
 import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/layout/Button.astro';
+import ProcessStep from '../../components/ProcessStep.astro';
+import ClientLogos from '../../components/ClientLogos.astro';
 
 const offerDetails = {
   title: 'Pakiet Standard',
-  price: '3200 zł',
-  description: 'Kompleksowe rozwiązanie dla firm potrzebujących profesjonalnej wizytówki online',
+  price: '3200 zł jednorazowo',
+  description: 'Profesjonalna strona wizytówkowa dla firm i freelancerów - kompleksowe rozwiązanie w przystępnej cenie',
   features: [
-    'Projekt i wdrożenie strony od podstaw',
-    'Do 5 podstron',
-    'Hosting + domena gratis na 12 miesięcy',
+    'Projekt i wdrożenie strony',
+    'Do 10 podstron',
+    'Hosting + domena na rok GRATIS',
     'Certyfikat SSL w cenie',
-    'Podstawowa optymalizacja SEO',
+    'Optymalizacja SEO pod podstawowe frazy',
     'Responsywny design',
-    'Szkolenie z obsługi CMS',
-    'Gwarancja 12 miesięcy'
+    '12 miesięcy gwarancji',
+    'Integracja z Google Analytics'
   ],
-  image: '/images/standard-package.jpg'
+  benefits: [
+    {
+      title: 'Szybkie wdrożenie',
+      icon: `
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
+        </svg>
+      `,
+      text: 'Gotowa strona w 14 dni'
+    },
+    {
+      title: 'Bez abonamentu',
+      icon: `
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+        </svg>
+      `,
+      text: 'Jednorazowa inwestycja'
+    },
+    {
+      title: 'Pełna własność',
+      icon: `
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      `,
+      text: '100% praw autorskich'
+    },
+    {
+      title: 'Gwarancja',
+      icon: `
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+      `,
+      text: '12 miesięcy wsparcia'
+    },
+  ],
 };
 ---
 
 <Layout
-  description="Profesjonalna strona wizytówka dla Twojej firmy - Pakiet Standard 3200 zł. Szybka realizacja, hosting i domena w cenie!"
-  title="Pakiet Standard | Strony WWW | Pawluk Studio">
-  
+  title="Strona Wizytówka | Pawluk Studio"
+  description="Profesjonalna strona internetowa od 3200 zł - idealne rozwiązanie dla lokalnych firm i freelancerów. Gwarancja 12 miesięcy wsparcia technicznego.">
   <Breadcrumb>
-    <Fragment slot="title">Pakiet Standard</Fragment>
+    <Fragment slot="title">Standard</Fragment>
   </Breadcrumb>
 
   <section class="pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
     <div class="container">
-      <div class="mb-16 grid gap-8 md:grid-cols-2">
-        <div>
-          <h1 class="text-4xl font-bold text-dark dark:text-white md:text-5xl">{offerDetails.title}</h1>
-          <div class="mt-6 flex items-center gap-4">
-            <span class="text-3xl font-bold text-primary">{offerDetails.price}</span>
-            <span class="text-lg text-body-color dark:text-dark-6">jednorazowa inwestycja</span>
-          </div>
-          <p class="mt-6 text-lg text-body-color dark:text-dark-6">{offerDetails.description}</p>
-          <div class="mt-8">
-            <Button href="#kontakt" text="Zamów teraz" />
-          </div>
+      <!-- Hero Section -->
+      <div class="mb-16 text-center">
+        <h1 data-animate class="text-4xl font-bold text-dark dark:text-white md:text-5xl">
+          {offerDetails.title}
+        </h1>
+        <div class="mt-6 flex flex-col items-center gap-2">
+          <span class="text-4xl font-bold text-primary">{offerDetails.price}</span>
         </div>
-        <img 
-          src={offerDetails.image} 
-          alt={offerDetails.title}
-          class="rounded-lg shadow-xl"
-          loading="lazy"
-        />
+        <p data-animate class="mx-auto mt-6 max-w-2xl text-lg text-body-color dark:text-dark-6">
+          {offerDetails.description}
+        </p>
+        <div class="mt-8">
+          <Button href="#order" text="Zamów stronę" />
+        </div>
       </div>
 
+      <!-- Benefits Grid -->
       <div class="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
-          <h3 class="mb-4 text-xl font-bold text-dark dark:text-white">Mobile First</h3>
-          <p class="text-body-color dark:text-dark-6">Projektowanie zaczynamy od wersji mobilnej gwarantując najlepszą wydajność</p>
-        </div>
-        <div class="rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
-          <h3 class="mb-4 text-xl font-bold text-dark dark:text-white">SEO Ready</h3>
-          <p class="text-body-color dark:text-dark-6">Wbudowana optymalizacja pod kątem wyszukiwarek internetowych</p>
-        </div>
-        <div class="rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
-          <h3 class="mb-4 text-xl font-bold text-dark dark:text-white">Średni czas realizacji</h3>
-          <p class="text-body-color dark:text-dark-6">10-14 dni roboczych</p>
-        </div>
-        <div class="rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
-          <h3 class="mb-4 text-xl font-bold text-dark dark:text-white">Wsparcie</h3>
-          <p class="text-body-color dark:text-dark-6">12 miesięcy gwarancji + pomoc techniczna</p>
-        </div>
-      </div>
-
-      <div class="mb-20">
-        <h2 class="mb-8 text-3xl font-bold text-dark dark:text-white">Co zawiera pakiet?</h2>
-        <div class="grid gap-6 md:grid-cols-2">
-          {offerDetails.features.map((feature, index) => (
-            <div class="flex items-start gap-4">
-              <span class="mt-1 text-primary">✔</span>
-              <p class="text-lg text-body-color dark:text-dark-6">{feature}</p>
+        {
+          offerDetails.benefits.map((benefit, index) => (
+            <div
+              data-animate
+              class="group relative overflow-hidden rounded-2xl bg-white/80 p-8 text-center shadow-xl shadow-dark/10 transition-all duration-300 hover:shadow-2xl dark:bg-dark-2 dark:shadow-black/30">
+              <div class="mb-6 inline-flex rounded-lg p-2 text-primary transition-transform duration-300 group-hover:-translate-y-1">
+                <span
+                  class="[&>svg]:h-12 [&>svg]:w-12 [&>svg]:stroke-[1.5]"
+                  set:html={benefit.icon}
+                />
+              </div>
+              <h3 class="mb-2 text-xl font-semibold text-dark dark:text-white">{benefit.title}</h3>
+              <p class="text-body-color dark:text-dark-6">{benefit.text}</p>
             </div>
-          ))}
+          ))
+        }
+      </div>
+
+      <!-- Feature List -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Co Zawiera Pakiet?
+        </h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          {
+            offerDetails.features.map((feature, index) => (
+              <div
+                data-animate
+                class="flex items-start gap-4 rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
+                <span class="mt-1 text-primary">▹</span>
+                <p class="text-lg text-body-color dark:text-dark-6">{feature}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
 
-      <div class="text-center">
-        <h2 class="mb-8 text-3xl font-bold text-dark dark:text-white">Gotowy na zmianę?</h2>
-        <Button href="#kontakt" text="Zacznijmy współpracę" />
+      <!-- Comparison Section -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Porównanie Modeli
+        </h2>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="rounded-xl bg-white p-8 dark:bg-dark-2">
+            <h3 class="mb-4 text-2xl font-bold text-dark dark:text-white">Standard</h3>
+            <div class="mb-6">
+              <span class="text-3xl font-bold text-primary">3200 zł</span>
+              <span class="block text-body-color dark:text-dark-6">jednorazowo</span>
+            </div>
+            <ul class="space-y-4 text-body-color dark:text-dark-6">
+              <li class="flex items-center gap-2">5 podstron</li>
+              <li class="flex items-center gap-2">Hosting 12 miesięcy</li>
+              <li class="flex items-center gap-2">Podstawowe SEO</li>
+            </ul>
+          </div>
+
+          <div class="relative rounded-xl bg-primary p-8 text-white">
+            <div class="absolute right-0 top-0 rounded-bl-xl rounded-tr-xl bg-white/20 px-6 py-2">
+              Polecany
+            </div>
+            <h3 class="mb-4 text-2xl font-bold">Abonament</h3>
+            <div class="mb-6">
+              <span class="text-3xl font-bold">199 zł</span>
+              <span class="block">opłata miesięczna</span>
+            </div>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-2">Do 10 podstron</li>
+              <li class="flex items-center gap-2">Hosting i domena w cenie</li>
+              <li class="flex items-center gap-2">Pełne wsparcie SEO</li>
+            </ul>
+          </div>
+
+          <div class="rounded-xl bg-white p-8 dark:bg-dark-2">
+            <h3 class="mb-4 text-2xl font-bold text-dark dark:text-white">E-commerce</h3>
+            <div class="mb-6">
+              <span class="text-3xl font-bold text-primary">7900 zł</span>
+              <span class="block text-body-color dark:text-dark-6">jednorazowo</span>
+            </div>
+            <ul class="space-y-4 text-body-color dark:text-dark-6">
+              <li class="flex items-center gap-2">Nielimitowane produkty</li>
+              <li class="flex items-center gap-2">System płatności</li>
+              <li class="flex items-center gap-2">Zaawansowane SEO</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Process Section -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Proces Realizacji
+        </h2>
+        <div class="grid gap-8 md:grid-cols-4">
+          <ProcessStep
+            number="1"
+            title="Briefing"
+            text="Omawiamy cele i zakres projektu"
+          />
+          <ProcessStep number="2" title="Projekt" text="Przygotowanie wersji graficznej" />
+          <ProcessStep number="3" title="Development" text="Wdrożenie funkcjonalności" />
+          <ProcessStep number="4" title="Szkolenie" text="Przekazanie gotowego rozwiązania" />
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Najczęstsze Pytania
+        </h2>
+        <div class="mx-auto max-w-3xl space-y-4">
+          <div
+            data-animate
+            class="group rounded-xl bg-white p-6 transition-all hover:shadow-xl dark:bg-dark-2">
+            <details class="relative">
+              <summary class="flex cursor-pointer items-center justify-between gap-4">
+                <span class="text-lg font-semibold text-dark dark:text-white"
+                  >Co po zakończeniu pierwszej roku hostingu?</span
+                >
+                <span
+                  class="shrink-0 text-primary transition-transform duration-300 group-open:rotate-180"
+                  >▼</span
+                >
+              </summary>
+              <div class="mt-4 border-t border-gray-100 pt-4 dark:border-dark-3">
+                <p class="text-body-color dark:text-dark-6">
+                  Po 12 miesiącach możesz przedłużyć hosting w preferencyjnej cenie 199 zł/rok
+                  lub przenieść stronę na własny serwer. Pomagamy w całym procesie migracji.
+                </p>
+              </div>
+            </details>
+          </div>
+
+          <div
+            data-animate
+            class="group rounded-xl bg-white p-6 transition-all hover:shadow-xl dark:bg-dark-2">
+            <details class="relative">
+              <summary class="flex cursor-pointer items-center justify-between gap-4">
+                <span class="text-lg font-semibold text-dark dark:text-white"
+                  >Czy mogę później rozbudować stronę?</span
+                >
+                <span
+                  class="shrink-0 text-primary transition-transform duration-300 group-open:rotate-180"
+                  >▼</span
+                >
+              </summary>
+              <div class="mt-4 border-t border-gray-100 pt-4 dark:border-dark-3">
+                <p class="text-body-color dark:text-dark-6">
+                  Oczywiście! Każda strona może być rozbudowana o dodatkowe funkcje:
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    <span class="rounded-full bg-gray-100 px-3 py-1 text-sm dark:bg-dark-3"
+                      >System rezerwacji</span
+                    >
+                    <span class="rounded-full bg-gray-100 px-3 py-1 text-sm dark:bg-dark-3"
+                      >Integracja z CRM</span
+                    >
+                  </div>
+                </p>
+              </div>
+            </details>
+          </div>
+          <div
+            data-animate
+            class="group rounded-xl bg-white p-6 transition-all hover:shadow-xl dark:bg-dark-2">
+            <details class="relative">
+              <summary class="flex cursor-pointer items-center justify-between gap-4">
+                <span class="text-lg font-semibold text-dark dark:text-white"
+                  >Czy strona będzie posiadać formularz kontaktowy?</span
+                >
+                <span
+                  class="shrink-0 text-primary transition-transform duration-300 group-open:rotate-180"
+                  >▼</span
+                >
+              </summary>
+              <div class="mt-4 border-t border-gray-100 pt-4 dark:border-dark-3">
+                <p class="text-body-color dark:text-dark-6">
+                  Oczywiście! Każda strona którą buduję posiada formularz
+                  kontaktowy z automatycznymi powiadomieniami e-mail.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technology Stack -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Wykorzystywane Technologie
+        </h2>
+        <ClientLogos />
+        <p class="mt-8 text-center text-body-color dark:text-dark-6">
+          Nowoczesny stack technologiczny gwarantujący szybkość i bezpieczeństwo
+        </p>
+      </div>
+
+      <!-- CTA Section -->
+      <div id="order" class="custom-bg relative overflow-hidden p-8 text-center text-white">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative z-10">
+          <h2 class="text-3xl font-bold">Zbudujmy Twoją Wizytówkę Online!</h2>
+          <div class="mt-6 flex justify-center gap-4">
+            <Button href="/kontakt" text="Zamów Teraz" />
+            <!-- <Button href="/portfolio" text="Zobacz Realizacje" /> -->
+          </div>
+          <div class="mt-8 inline-flex items-center gap-2 text-sm">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              ></path>
+            </svg>
+            <span>Gwarancja bezpieczeństwa danych</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .custom-bg {
+    background: linear-gradient(45deg, #1e3a8a 0%, #2563eb 100%);
+  }
+</style>

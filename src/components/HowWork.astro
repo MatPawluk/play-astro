@@ -1,0 +1,33 @@
+---
+import ProcessStep from './ProcessStep.astro';
+---
+
+<section class="mb-20 pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
+  <div class="container">
+    <div>
+      <h2
+        data-animate
+        class="mb-12 text-center text-4xl font-bold text-dark dark:text-white md:text-5xl">
+        Jak Działam?
+      </h2>
+      <div class="grid gap-8 md:grid-cols-4">
+        <ProcessStep
+          number="1"
+          title="Briefing"
+          text="Omawiamy Twoje cele i wymagania podczas bezpłatnej konsultacji"
+        />
+        <ProcessStep
+          number="2"
+          title="Projekt"
+          text="Przygotowuje wstępny projekt graficzny do akceptacji"
+        />
+        <ProcessStep
+          number="3"
+          title="Realizacja"
+          text="Rozwijam pełną funkcjonalność strony zgodnie z harmonogramem"
+        />
+        <ProcessStep number="4" title="Wdrożenie" text="Uruchomienie strony na serwerze" />
+      </div>
+    </div>
+  </div>
+</section>

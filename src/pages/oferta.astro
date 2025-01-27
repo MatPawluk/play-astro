@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Button from '../components/layout/Button.astro';
 import ClientLogos from '../components/ClientLogos.astro';
 import ProcessStep from '../components/ProcessStep.astro';
+import HowWork from '../components/HowWork.astro';
 
 const packages = [
   {
@@ -12,7 +13,7 @@ const packages = [
     type: 'jednorazowo',
     features: [
       'Projekt i wdrożenie strony',
-      'Do 5 podstron',
+      'Do 10 podstron',
       'Hosting + domena na rok',
       'Certyfikat SSL',
       'Optymalizacja SEO',
@@ -542,31 +543,7 @@ const features = [
           </div> -->
 
           <!-- Proces Realizacji -->
-          <div class="mb-20">
-            <h2
-              data-animate
-              class="mb-12 text-center text-4xl font-bold text-dark dark:text-white md:text-5xl">
-              Jak Działam?
-            </h2>
-            <div class="grid gap-8 md:grid-cols-4">
-              <ProcessStep
-                number="1"
-                title="Briefing"
-                text="Omawiamy Twoje cele i wymagania podczas bezpłatnej konsultacji"
-              />
-              <ProcessStep
-                number="2"
-                title="Projekt"
-                text="Przygotowuje wstępny projekt graficzny do akceptacji"
-              />
-              <ProcessStep
-                number="3"
-                title="Realizacja"
-                text="Rozwijam pełną funkcjonalność strony zgodnie z harmonogramem"
-              />
-              <ProcessStep number="4" title="Wdrożenie" text="Uruchomienie strony na serwerze" />
-            </div>
-          </div>
+          <HowWork />
 
           <!-- FAQ -->
           <div class="mb-20">

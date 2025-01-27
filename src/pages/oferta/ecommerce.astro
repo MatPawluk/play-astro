@@ -1,83 +1,247 @@
 ---
+// src/pages/oferta/ecommerce.astro
 import Breadcrumb from '../../components/layout/Breadcrumb.astro';
 import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/layout/Button.astro';
+import ProcessStep from '../../components/ProcessStep.astro';
+import ClientLogos from '../../components/ClientLogos.astro';
 
 const offerDetails = {
-  title: 'Sklepy Internetowe',
+  title: 'Profesjonalny Sklep Internetowy',
   price: 'od 7900 zł',
-  description: 'Kompleksowe rozwiązania e-commerce dla Twojego biznesu',
+  description: 'Kompleksowe rozwiązanie e-commerce zintegrowane z systemami płatności i logistyki',
   features: [
-    'Niestandardowy projekt sklepu',
-    'Integracja z Shopify/WordPress WooCommerce',
-    'System płatności online',
-    'Integracja z systemami wysyłkowymi',
+    'Indywidualny projekt sklepu',
+    'Integracja z PayPal/Przelewy24',
     'Panel zarządzania produktami',
-    'Optymalizacja pod kątem konwersji',
-    'Szkolenie z obsługi sklepu',
-    'Roczna gwarancja'
+    'Optymalizacja ścieżki zakupowej',
+    'Integracja z systemami dostaw',
+    'Szkolenie z obsługi',
+    '12 miesięcy gwarancji',
+    'Wersje językowe (opcjonalnie)'
   ],
-  integrations: [
-    { logo: '/logos/shopify.svg', name: 'Shopify' },
-    { logo: '/logos/woocommerce.svg', name: 'WooCommerce' },
-    { logo: '/logos/payu.svg', name: 'PayU' },
-    { logo: '/logos/dpd.svg', name: 'DPD' }
-  ]
+  benefits: [
+    {
+      title: 'Skalowalność',
+      icon: `
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+        </svg>
+      `,
+      text: 'Gotowy na wzrost sprzedaży'
+    },
+    {
+      title: 'Bezpieczeństwo',
+      icon: `
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+      `,
+      text: 'Szyfrowane transakcje'
+    },
+    {
+      title: 'Analizy',
+      icon: `
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+      `,
+      text: 'Zaawansowane śledzenie konwersji'
+    },
+    {
+      title: 'Mobile First',
+      icon: `
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+        </svg>
+      `,
+      text: 'Optymalizacja pod urządzenia mobilne'
+    },
+  ],
 };
 ---
 
 <Layout
-  description="Profesjonalne sklepy internetowe od 7900 zł. Kompleksowa realizacja, integracje z systemami płatności i wysyłki."
-  title="Sklepy Internetowe | E-commerce | Pawluk Studio">
-  
+  title="Sklep Internetowy | Pawluk Studio"
+  description="Profesjonalne rozwiązanie e-commerce od 7900 zł - integracja z systemami płatności, zarządzanie produktami i zaawansowane funkcje sprzedażowe.">
   <Breadcrumb>
     <Fragment slot="title">E-commerce</Fragment>
   </Breadcrumb>
 
   <section class="pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]">
     <div class="container">
+      <!-- Hero Section -->
       <div class="mb-16 text-center">
-        <h1 class="text-4xl font-bold text-dark dark:text-white md:text-5xl">{offerDetails.title}</h1>
-        <div class="mt-6">
-          <span class="text-3xl font-bold text-primary">{offerDetails.price}</span>
+        <h1 data-animate class="text-4xl font-bold text-dark dark:text-white md:text-5xl">
+          {offerDetails.title}
+        </h1>
+        <div class="mt-6 flex flex-col items-center gap-2">
+          <span class="text-4xl font-bold text-primary">{offerDetails.price}</span>
         </div>
-        <p class="mx-auto mt-6 max-w-2xl text-lg text-body-color dark:text-dark-6">{offerDetails.description}</p>
+        <p data-animate class="mx-auto mt-6 max-w-2xl text-lg text-body-color dark:text-dark-6">
+          {offerDetails.description}
+        </p>
         <div class="mt-8">
-          <Button href="#kontakt" text="Zamów konsultację" />
+          <Button href="#order" text="Zapytaj o Sklep" />
         </div>
       </div>
 
-      <div class="mb-20">
-        <h2 class="mb-8 text-3xl font-bold text-dark dark:text-white">Kluczowe funkcje</h2>
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {offerDetails.features.map((feature, index) => (
-            <div class="rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
-              <div class="mb-4 text-2xl text-primary">0{index + 1}</div>
-              <p class="text-body-color dark:text-dark-6">{feature}</p>
+      <!-- Benefits Grid -->
+      <div class="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {
+          offerDetails.benefits.map((benefit, index) => (
+            <div
+              data-animate
+              class="group relative overflow-hidden rounded-2xl bg-white/80 p-8 text-center shadow-xl shadow-dark/10 transition-all duration-300 hover:shadow-2xl dark:bg-dark-2 dark:shadow-black/30">
+              <div class="mb-6 inline-flex rounded-lg p-2 text-primary transition-transform duration-300 group-hover:-translate-y-1">
+                <span
+                  class="[&>svg]:h-12 [&>svg]:w-12 [&>svg]:stroke-[1.5]"
+                  set:html={benefit.icon}
+                />
+              </div>
+              <h3 class="mb-2 text-xl font-semibold text-dark dark:text-white">{benefit.title}</h3>
+              <p class="text-body-color dark:text-dark-6">{benefit.text}</p>
             </div>
-          ))}
-        </div>
+          ))
+        }
       </div>
 
+      <!-- Feature List -->
       <div class="mb-20">
-        <h2 class="mb-8 text-3xl font-bold text-dark dark:text-white">Integracje</h2>
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {offerDetails.integrations.map(integration => (
-            <div class="flex items-center justify-center gap-4 rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
-              <img src={integration.logo} alt={integration.name} class="h-12 w-auto" loading="lazy" />
-              <span class="text-body-color dark:text-dark-6">{integration.name}</span>
-            </div>
-          ))}
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Kluczowe Funkcje Sklepu
+        </h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          {
+            offerDetails.features.map((feature, index) => (
+              <div
+                data-animate
+                class="flex items-start gap-4 rounded-lg bg-gray-50 p-6 dark:bg-dark-2">
+                <span class="mt-1 text-primary">▹</span>
+                <p class="text-lg text-body-color dark:text-dark-6">{feature}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
 
-      <div class="rounded-xl bg-dark p-8 text-center text-white">
-        <h3 class="text-2xl font-bold">Specjalna oferta dla nowych klientów!</h3>
-        <p class="mt-4">Darmowa integracja z systemem płatności przy zamówieniu do końca miesiąca</p>
-        <div class="mt-6">
-          <Button href="#kontakt" text="Skorzystaj z oferty"/>
+     
+
+      <!-- Process Section -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Etapy Realizacji
+        </h2>
+        <div class="grid gap-8 md:grid-cols-4">
+          <ProcessStep
+            number="1"
+            title="Analiza"
+            text="Badanie rynku i potrzeb biznesowych"
+          />
+          <ProcessStep number="2" title="Projekt" text="Tworzenie strategii e-commerce" />
+          <ProcessStep number="3" title="Development" text="Implementacja funkcjonalności" />
+          <ProcessStep number="4" title="Wdrożenie" text="Szkolenie i uruchomienie sklepu" />
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Najczęstsze Pytania
+        </h2>
+        <div class="mx-auto max-w-3xl space-y-4">
+          <div
+            data-animate
+            class="group rounded-xl bg-white p-6 transition-all hover:shadow-xl dark:bg-dark-2">
+            <details class="relative">
+              <summary class="flex cursor-pointer items-center justify-between gap-4">
+                <span class="text-lg font-semibold text-dark dark:text-white"
+                  >Jakie systemy płatności obsługujecie?</span
+                >
+                <span
+                  class="shrink-0 text-primary transition-transform duration-300 group-open:rotate-180"
+                  >▼</span
+                >
+              </summary>
+              <div class="mt-4 border-t border-gray-100 pt-4 dark:border-dark-3">
+                <div class="flex flex-wrap gap-2">
+                  <span class="rounded-full bg-gray-100 px-3 py-1 text-sm dark:bg-dark-3">Przelewy24</span>
+                  <span class="rounded-full bg-gray-100 px-3 py-1 text-sm dark:bg-dark-3">PayPal</span>
+                  <span class="rounded-full bg-gray-100 px-3 py-1 text-sm dark:bg-dark-3">Stripe</span>
+                  <span class="rounded-full bg-gray-100 px-3 py-1 text-sm dark:bg-dark-3">Dotpay</span>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <div
+            data-animate
+            class="group rounded-xl bg-white p-6 transition-all hover:shadow-xl dark:bg-dark-2">
+            <details class="relative">
+              <summary class="flex cursor-pointer items-center justify-between gap-4">
+                <span class="text-lg font-semibold text-dark dark:text-white"
+                  >Czy sklep jest gotowy na Black Friday?</span
+                >
+                <span
+                  class="shrink-0 text-primary transition-transform duration-300 group-open:rotate-180"
+                  >▼</span
+                >
+              </summary>
+              <div class="mt-4 border-t border-gray-100 pt-4 dark:border-dark-3">
+                <p class="text-body-color dark:text-dark-6">
+                  Tak! Nasze rozwiązania e-commerce posiadają:
+                  <ul class="mt-3 list-inside list-disc space-y-2">
+                    <li>Automatyczne skalowanie serwera</li>
+                    <li>Cacheowanie stron produktowych</li>
+                    <li>Load balancing</li>
+                    <li>Zabezpieczenia przed przeciążeniami</li>
+                  </ul>
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technology Stack -->
+      <div class="mb-20">
+        <h2 data-animate class="mb-12 text-center text-4xl font-bold text-dark dark:text-white">
+          Technologie E-commerce
+        </h2>
+        <ClientLogos />
+        <p class="mt-8 text-center text-body-color dark:text-dark-6">
+          Nowoczesne frameworki zapewniające wydajność i stabilność
+        </p>
+      </div>
+
+      <!-- CTA Section -->
+      <div id="order" class="custom-bg relative overflow-hidden p-8 text-center text-white">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative z-10">
+          <h2 class="text-3xl font-bold">Zacznij Sprzedawać Online!</h2>
+          <div class="mt-6 flex justify-center gap-4">
+            <Button href="/kontakt" text="Zamów Sklep" />
+            <!-- <Button href="/portfolio" text="Case Studies" /> -->
+          </div>
+          <div class="mt-8 inline-flex items-center gap-2 text-sm">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              ></path>
+            </svg>
+            <span>Certyfikowane rozwiązania płatności</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .custom-bg {
+    background: linear-gradient(45deg, #065f46 0%, #059669 100%);
+  }
+</style>

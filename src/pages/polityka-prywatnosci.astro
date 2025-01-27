@@ -1,5 +1,6 @@
 ---
 import Baner from '../components/Baner.astro';
+import Breadcrumb from '../components/layout/Breadcrumb.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -7,7 +8,8 @@ import Layout from '../layouts/Layout.astro';
   description="Pawluk Studio - Strony internetowe już za 199 zł. Sklepy internetowe, aplikacje webowe, strony wizytówki. Sprawdź ofertę!"
   title="Polityka Prywatności | PawlukStudio"
  >
-  <Baner title="Polityka prywatności" subtitle="Zapoznaj się z naszą polityką prywatności" />
+<Breadcrumb >    <Fragment slot="title">Polityka Prywatności</Fragment>
+</Breadcrumb>  
   <section class="container py-5" >
     <div class="container-fluid container-fluid-wrapper fill dark:bg-black">
 

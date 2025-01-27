@@ -1,0 +1,14 @@
+---
+import Contactsection from "../components/Contactsection.astro";
+import Breadcrumb from "../components/layout/Breadcrumb.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  description="Pełna oferta Pawluk Studio - profesjonalne strony internetowe, sklepy online i rozwiązania abonamentowe. Wybierz pakiet idealny dla Twojego biznesu!"
+  title="Pełna Oferta | Strony WWW | Pawluk Studio">
+  <Breadcrumb>
+    <Fragment slot="title">Kontakt</Fragment>
+  </Breadcrumb>
+  <Contactsection />
+</Layout>
