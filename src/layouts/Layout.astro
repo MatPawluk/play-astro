@@ -92,10 +92,14 @@ const { description, title, image } = Astro.props;
     <link rel="canonical" href={Astro.url.href} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    </noscript>
     <script is:inline>
       document.documentElement.classList.add('js');
     </script>
-    <script src="https://www.googletagmanager.com/gtag/js?id=G-0PX8PYM46H" is:inline></script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-0PX8PYM46H" async></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -341,6 +345,6 @@ const { description, title, image } = Astro.props;
       window.addEventListener('scroll', r);
       window.addEventListener('load', r);
     </script>
-    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js" defer></script>
   </body>
 </html>
