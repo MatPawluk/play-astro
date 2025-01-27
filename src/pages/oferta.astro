@@ -1,10 +1,9 @@
 ---
 import Breadcrumb from '../components/layout/Breadcrumb.astro';
-import Layout from '../layouts/Layout.astro';
 import Button from '../components/layout/Button.astro';
 import ClientLogos from '../components/ClientLogos.astro';
-import ProcessStep from '../components/ProcessStep.astro';
 import HowWork from '../components/HowWork.astro';
+import BlogLayout from '../layouts/BlogLayout.astro';
 
 const packages = [
   {
@@ -115,7 +114,7 @@ const features = [
 ];
 ---
 
-<Layout
+<BlogLayout
   description="Pełna oferta Pawluk Studio - profesjonalne strony internetowe, sklepy online i rozwiązania abonamentowe. Wybierz pakiet idealny dla Twojego biznesu!"
   title="Pełna Oferta | Strony WWW | Pawluk Studio">
   <Breadcrumb>
@@ -728,4 +727,4 @@ const features = [
       </div>
     </div>
   </section>
-</Layout>
+</BlogLayout>

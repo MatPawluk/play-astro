@@ -1,6 +1,7 @@
 ---
 import Pagination from '../components/Pagination.astro';
 import Breadcrumb from '../components/layout/Breadcrumb.astro';
+import BlogLayout from '../layouts/BlogLayout.astro';
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -15,7 +16,7 @@ publishedBlogEntries.sort(function (a, b) {
 });
 ---
 
-<Layout
+<BlogLayout
   description="Pawluk Studio - Strony internetowe już za 199 zł. Sklepy internetowe, aplikacje webowe, strony wizytówki. Sprawdź ofertę!"
   title="Blog | Pawluk Studio">
   <Breadcrumb>
@@ -62,4 +63,4 @@ publishedBlogEntries.sort(function (a, b) {
       <!-- <Pagination /> -->
     </div>
   </section>
-</Layout>
+</BlogLayout>
