@@ -15,54 +15,52 @@ const { description, title, image } = Astro.props;
 <!doctype html>
 <html lang="pl">
   <head>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ServiceBusiness",
-        "name": "Pawluk Studio",
-        "image": "https://pawlukstudio.pl/assets/logo/logo.svg",
-        "description": "Profesjonalne tworzenie stron internetowych i sklepów online dla firm z Lęborka i Słupska",
-        "priceRange": "$$",
-        // "telephone": "+48-123-456-789",
-        "address": {
-          "@type": "PostalAddress",
-          // "streetAddress": "ul. Przykładowa 123",
-          "addressLocality": "Lębork",
-          "addressRegion": "Pomorskie",
-          "postalCode": "84-300",
-          "addressCountry": "PL"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 54.539578,
-          "longitude": 17.750126
-        },
-        "url": "https://pawlukstudio.pl",
-        "sameAs": [
-          "https://facebook.com/profile.php?id=61567535872481",
-          "https://linkedin.com/in/mateusz-pawluk-513368271"
-        ],
-        "serviceArea": {
-          "@type": "AdministrativeArea",
-          "name": ["Lębork", "Słupsk", "Pomorskie"]
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-          ],
-          "opens": "00:00",
-          "closes": "23:59"
-        },
-        "openingHours": "24/7"
-      }
-    </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ServiceBusiness",
+    "name": "Pawluk Studio",
+    "image": "https://pawlukstudio.pl/assets/logo/logo.svg",
+    "description": "Profesjonalne tworzenie stron internetowych i sklepów online dla firm z Lęborka i Słupska",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lębork",
+      "addressRegion": "Pomorskie",
+      "postalCode": "84-300",
+      "addressCountry": "PL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 54.539578,
+      "longitude": 17.750126
+    },
+    "url": "https://pawlukstudio.pl",
+    "sameAs": [
+      "https://facebook.com/profile.php?id=61567535872481",
+      "https://linkedin.com/in/mateusz-pawluk-513368271"
+    ],
+    "serviceArea": {
+      "@type": "AdministrativeArea",
+      "name": ["Lębork", "Słupsk", "Pomorskie"]
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    }, 
+    "openingHours": "24/7"
+  } 
+</script>>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="geo.region" content="PL-PM" />
