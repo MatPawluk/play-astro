@@ -1,0 +1,23 @@
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  });
+</script>
+
+<script defer src="../scripts/stickymenu.js"></script>
+<script defer src="../scripts/scrolltop.js"></script>
+<script defer src="../scripts/darkMode.js"></script>
+<script defer src="../scripts/dropdown.js"></script>
+<script defer src="../scripts/init.js"></script>
+<script async src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
