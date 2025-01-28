@@ -8,7 +8,7 @@ publishDate: '2025-01-22 11:39'
 category: 'Personal'
 author: 'Mateusz Pawluk'
 bigImg: { src: '/assets/blog/blog-details-01.webp', alt: 'droga z zachodem słońca w tle a na niej napis start' }
-authorImg: { src: '/assets/blog/author-01.jpg', alt: 'author' }
+authorImg: { src: '/assets/blog/author-01.jpg', alt: 'Zdjęcie autora Mateusza Pawluk' }
 comments: '0'
 views: '0'
 tags: ['Freelancing', 'Web Development', 'Personal Story']
